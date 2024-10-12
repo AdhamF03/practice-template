@@ -7,6 +7,7 @@ $paragraph-Font: "Playfair Display", serif;
 $heading-FontWeight: 500;
 $allCaps: uppercase;
 $line-Height: 1.1em;
+$letter-Spacing: 1px;
 
 // ELEMENTS
 h1 {
@@ -19,4 +20,11 @@ h1 {
 p {
   font-family: $paragraph-Font;
   font-weight: $heading-FontWeight;
+}
+
+button {
+  font-family: $heading-Font;
+  font-weight: $heading-FontWeight;
+  text-transform: $allCaps;
+  letter-spacing: $letter-Spacing;
 }
