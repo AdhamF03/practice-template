@@ -1,0 +1,92 @@
+@import "../../../styles.scss";
+
+.navbar {
+  background-color: $colorGreen;
+  width: 100%;
+  height: 100px;
+}
+
+.container-xl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.row {
+  width: 100%;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-toggler {
+  font-size: 25px;
+}
+
+.navbar .left a {
+  font-size: 1.5em;
+  font-weight: 400;
+  font-family: $heading-Font;
+}
+
+.navbar .center ul {
+  align-items: center;
+  list-style-type: none;
+  font-size: 13px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  height: 100%;
+  padding-right: 50px;
+  text-transform: $allCaps;
+  font-style: $heading-Font;
+}
+
+.navbar .center ul li {
+  padding-right: 16px;
+  padding-left: 16px;
+  height: 100%;
+  display: flex;
+}
+
+.navbar .center ul li:hover {
+  transition: 0.2s linear;
+  transform: scale(1.15);
+  display: inline-block;
+}
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  color: #fff;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.navbar .right .fa-cart-shopping {
+  margin-right: 10px;
+}
+
+.navbar .right .cart-count {
+  position: absolute;
+  right: 10px;
+  background-color: #fff;
+  color: #004d46;
+  border-radius: 50%;
+  padding: 0 5px;
+  font-size: 0.8em;
+}
+
+/* Responsive styles */
+@media (max-width: 300px) {
+  .navbar .center ul {
+    display: none;
+  }
+}
