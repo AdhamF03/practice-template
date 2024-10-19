@@ -2,8 +2,8 @@
 $colorGreen: #025048;
 $colorWhite: #ffff;
 $colorGrey: #f1f4f1;
-$heading-Font: "Work Sans", sans-serif;
-$title-Font: "Playfair Display", serif;
+$title-Font: "Work Sans", sans-serif;
+$heading-Font: "Playfair Display", serif;
 $heading-FontWeight: 500;
 $allCaps: uppercase;
 $line-Height: 1.1em;
@@ -13,7 +13,7 @@ $title-letter-Spacing: 1.5px;
 h1,
 h2,
 h4 {
-  font-family: $title-Font;
+  font-family: $heading-Font;
   font-weight: $heading-FontWeight;
   line-height: $line-Height;
 }
@@ -29,8 +29,14 @@ p {
 }
 
 button {
-  font-family: $heading-Font;
+  font-family: $title-Font;
   font-weight: $heading-FontWeight;
   text-transform: $allCaps;
   letter-spacing: $title-letter-Spacing;
+  border: 1px solid $colorWhite;
+  border-radius: 0;
+  color: $colorWhite;
+  padding: 15px 30px;
+  font-size: 1rem;
+  background-color: transparent;
 }

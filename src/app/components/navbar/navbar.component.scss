@@ -1,0 +1,115 @@
+@import "../../../styles.scss";
+
+.navbar {
+  background-color: $colorGreen;
+
+  .container-fluid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 405px;
+    margin-right: 380px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    .d-flex {
+      width: 100%;
+    }
+
+    .companyLogo a {
+      text-decoration: none;
+
+      font-size: 25px;
+      font-weight: 400;
+      color: white;
+      font-style: $title-Font;
+    }
+
+    .navbar-pages ul {
+      font-size: 17x;
+      display: flex;
+      list-style-type: none;
+      padding-left: 0px;
+      margin-bottom: 0px;
+      text-transform: $allCaps;
+
+      a {
+        text-decoration: none;
+        justify-content: space-between;
+        padding-left: 35px;
+        color: white;
+      }
+    }
+  }
+}
+
+.navbar-pages ul li:hover {
+  transition: 0.2s linear;
+  transform: scale(1.15);
+  display: inline-block;
+}
+
+.shop-cart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+// .sidebar {
+//   position: fixed;
+//   top: 0;
+//   right: -250px;
+//   height: 100%;
+//   width: 250px;
+//   background-color: $colorGreen;
+//   color: white;
+//   transition: right 0.3s ease-in-out;
+//   padding-top: 60px;
+//   z-index: 1000;
+
+//   ul {
+//     list-style-type: none;
+//     padding: 0;
+
+//     li {
+//       padding: 15px;
+//       a {
+//         color: white;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
+
+// .sidebar.open {
+//   right: 0;
+// }
+
+// @media (max-width: 768px) {
+//   .nav-container {
+//     margin-left: 20px;
+//     margin-right: 20px;
+
+//     .navbar-pages {
+//       display: none;
+//     }
+
+//     .navbar-toggler {
+//       display: block;
+//     }
+//   }
+// }
