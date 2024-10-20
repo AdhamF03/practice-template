@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
+// import { sideBtn } from './button.directive';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +9,16 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
-
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  // Function to handle click event on the button
+  onClickBtn(): void {
+    const sideBar = this.el.nativeElement.querySelector('.close');
+    if (sideBar) {
+      if (sideBar.classList.contains('collapse')) {
+        this.renderer.removeClass(sideBar, 'collapse');
+      } else {
+        this.renderer.addClass(sideBar, 'collapse');
+      }
+    }
   }
 }

@@ -1,31 +1,66 @@
-<nav class="navbar navbar-expand-md">
-  <div class="container-fluid">
-    <div class="d-flex">
-      <div class="companyLogo"><a href="#">CeramicShop</a></div>
+<nav>
+  <ul class="left">
+    <li>
+      <a class="brand" routerLink="">CeramicShop</a>
+    </li>
+  </ul>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarMobileMenu"
-        aria-controls="navbarMobileMenu"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon-light"></span>
-      </button>
+  <ul class="center">
+    <li>
+      <a>Home</a>
+    </li>
+    <li>
+      <a>About</a>
+    </li>
+    <li>
+      <a>Shop</a>
+    </li>
+    <li>
+      <a>Contact</a>
+    </li>
+  </ul>
 
-      <div id="navbarMobileMenu" class="navbar-pages collapse navbar-collapse">
-        <ul>
-          <li><a class="nav-link active" aria-current="page" (click)="navigateTo('home')">Home</a></li>
-          <li><a class="nav-link active" aria-current="page" (click)="navigateTo('about')">About</a></li>
-          <li><a class="nav-link active" aria-current="page" (click)="navigateTo('shop')">Shop</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-      <div class="shop-cart collapse navbar-collapse">
+  <ul class="right">
+    <li>
+      <a>
+        <div class="shop-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <button class="close collapse" onclick="onClickBtn( )">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
+
+<div class="sidebar collpase">
+  <button class="close">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <ul>
+    <li>
+      <a>Home</a>
+    </li>
+    <li>
+      <a>About</a>
+    </li>
+    <li>
+      <a>Shop</a>
+    </li>
+    <li>
+      <a>Contact</a>
+    </li>
+
+    <li>
+      <hr />
+    </li>
+
+    <li>
+      <div class="shop-cart">
         <i class="fa-solid fa-cart-shopping"></i>
       </div>
-    </div>
-  </div>
-</nav>
+    </li>
+  </ul>
+</div>
