@@ -1,0 +1,124 @@
+<div class="product-details">
+  <!-- Product Images Section -->
+  <div class="product-images">
+    <img
+      [src]="product?.mainImage"
+      alt="Main Product Image"
+      class="main-image"
+    />
+    <div class="thumbnail-images">
+      <img
+        *ngFor="let thumbnail of product?.thumbnailImages"
+        [src]="thumbnail.url"
+        alt="Thumbnail 1"
+      />
+    </div>
+  </div>
+  <!-- Product Info Section -->
+  <div class="product-info">
+    <nav class="breadcrumb">
+      <a (click)="router.navigate(['/home'])">Home</a>/<a
+        (click)="router.navigate([''])"
+        >{{ product.category }}</a
+      >/{{ product.name }}
+    </nav>
+    <h2 class="product-name">{{ product?.name }}</h2>
+    <p class="product-price">
+      ${{ product?.price }} <span>& Free Shipping</span>
+    </p>
+    <!-- Product Description Section -->
+    <p class="product-description">
+      Discover the beauty of ceramics with our handcrafted. This exquisite piece
+      combines artistry and function, making it a versatile addition to any
+      space. Whether used as a decorative accent or a practical item, this
+      ceramic creation adds a touch of elegance to your surroundings.
+    </p>
+    <div class="quantity-and-cart">
+      <!-- Quantity Selector Section -->
+      <div class="quantity-selector">
+        <button>-</button>
+        <input type="text" value="1" />
+        <button>+</button>
+      </div>
+      <!-- Add to Cart Button Section -->
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+<hr>
+    <!-- Categories Section -->
+    <p class="categories">Categories: Pottery, Ceramic, Ceramic Coatings</p>
+    <!-- Shipping Info Section -->
+    <p class="shipping-info">Free shipping on orders over $50!</p>
+    <!-- Guarantees Section -->
+    <ul class="guarantees">
+      <li>No-Risk Money Back Guarantee!</li>
+      <li>No Hassle Refunds</li>
+      <li>Secure Payments</li>
+    </ul>
+    <!-- Safe Checkout Section -->
+    <div class="safe-checkout">
+      <p>Guaranteed Safe Checkout</p>
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fab fa-cc-amex"></i>
+      <i class="fa-brands fa-cc-discover"></i>
+    </div>
+  </div>
+</div>
+<!-- Product Reviews Section -->
+<div class="product-tabs">
+  <ul class="tab-list">
+    <li class="active">Description</li>
+    <li>Reviews (0)</li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active">
+      <p>
+        Discover the beauty of ceramics with our handcrafted. This exquisite
+        piece combines artistry and function, making it a versatile addition to
+        any space. Whether used as a decorative accent or a practical item, this
+        ceramic creation adds a touch of elegance to your surroundings.
+        Showcases the craftsmanship and timeless appeal of ceramics. Its ensures
+        it’s built to last, serving both as a beautiful addition and a
+        functional part of your daily life. Experience the artistry of ceramics
+        and enhance your living spaces with our. Order today and elevate your
+        surroundings with this exquisite piece.
+      </p>
+    </div>
+    <div class="tab-pane">
+      <p>No reviews yet.</p>
+    </div>
+  </div>
+</div>
+<!-- Related Products -->
+<div class="related-products">
+  <h3>Related products</h3>
+  <div class="product-list">
+    <div class="product-item">
+      <img src="img/products details/5/product-05.jpg" alt="Product 1" />
+      <p class="category">Pottery</p>
+      <h4>Ceramic Plant Pots</h4>
+      <p class="price">$139.00</p>
+    </div>
+    <div class="product-item">
+      <img src="img/products details/10/contact-01.jpg" alt="Product 2" />
+      <p class="category">Pottery</p>
+      <h4>Ceramic Vases and Planters</h4>
+      <p class="price"><span class="old-price">$247.00</span> $217.00</p>
+    </div>
+    <div class="product-item">
+      <img
+        src="img/products details/6/ceramic-planter-01.jpg"
+        alt="Product 3"
+      />
+      <p class="category">Ceramic</p>
+      <h4>Ceramic Planter</h4>
+      <p class="price"><span class="old-price">$349.00</span> $299.00</p>
+    </div>
+    <div class="product-item">
+      <img src="img/products details/8/product-02.jpg" alt="Product 4" />
+      <p class="category">Ceramic</p>
+      <h4>Ceramic Plates and Bowls</h4>
+      <p class="price"><span class="old-price">$249.00</span> $209.00</p>
+    </div>
+  </div>
+</div>
