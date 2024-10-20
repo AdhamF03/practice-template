@@ -5,10 +5,10 @@
 
       <div class="col-md-4 center">
         <ul>
-          <li><a class="nav-link active" aria-current="page" (click)="navigateTo('home')">Home</a></li>
-          <li><a class="nav-link active" aria-current="page" (click)="navigateTo('about')">About</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a></li>
+          <li><a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
+          <li><a [routerLink]="['/shop']" routerLinkActive="router-link-active" >Shop</a></li>
+          <li><a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a></li>
         </ul>
       </div>
       <div class="col-md-4 footer-end">

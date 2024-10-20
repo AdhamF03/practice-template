@@ -1,17 +1,13 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  constructor(private router: Router) {}
-
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
-  }
+  readonly router = inject(Router);
 }

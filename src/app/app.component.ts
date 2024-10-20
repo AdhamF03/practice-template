@@ -7,6 +7,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { ShopComponent } from './components/pages/shop/shop.component';
+import { ProductsDetailsComponent } from './components/pages/shop/products-details/products-details/products-details.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -18,6 +19,7 @@ import { ShopComponent } from './components/pages/shop/shop.component';
     AboutComponent,
     ContactComponent,
     ShopComponent,
+    ProductsDetailsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
