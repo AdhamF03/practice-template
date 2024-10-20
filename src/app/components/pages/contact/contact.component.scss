@@ -1,0 +1,207 @@
+@import "../../../../styles.scss";
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.contact-info {
+  background-color: white;
+
+  .get-in-touch,
+  h3 {
+    font-size: 50px;
+    color: $colorGreen;
+  }
+  p {
+    font-size: 17px;
+  }
+}
+.container-fluid-1 {
+  background-color: $colorGreen;
+
+  h1,
+  p {
+    color: $colorWhite;
+  }
+
+  .container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 4.125rem;
+    }
+
+    .img-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      padding-bottom: 0px;
+
+      img {
+        width: 500px;
+        height: 500px;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container .row {
+      flex-direction: column;
+
+      h1,
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.address {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: flex-start; /* Align children to the start (left) */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d5cdcd;
+}
+
+.icon-desc {
+  display: flex;
+  align-items: center; /* Center the icon and h6 vertically */
+  padding-top: 10px;
+}
+
+.icon-desc h6 {
+  padding-left: 12px;
+  padding-top: 7px;
+}
+.icon-desc i {
+  margin-right: 5px; /* Add space between the icon and the h6 */
+}
+
+.address p {
+  margin-top: 5px; /* Add space between the header and the paragraph */
+}
+
+.socials i {
+  padding-left: 10px;
+  align-items: flex-start;
+}
+
+.name-fields {
+  display: flex;
+
+  .input-field-lastName {
+    align-items: flex-end;
+  }
+}
+.form-container {
+  background-color: #f1f4f1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 32px;
+  padding-left: 32px;
+  height: 100%;
+  width: 100%;
+
+  align-items: center;
+  .input-field {
+    width: 40%;
+    height: 50px;
+    display: flex;
+  }
+
+  .submit-form {
+    background-color: $colorGreen;
+    color: $colorWhite;
+    border: 1px solid $colorWhite;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $colorWhite;
+      color: $colorGreen;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.input-field {
+  width: 100%;
+}
+
+.FAQS-wrapper {
+  background-color: #f1f4f1;
+}
+
+.card-heading {
+  color: black;
+}
+
+.ceramic-artistry {
+  padding: 0;
+  overflow: hidden;
+
+  .row {
+    margin: 0;
+    display: flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .image-container,
+  .content-container {
+    padding: 0;
+    flex: 1;
+  }
+
+  .image-container {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content-container {
+    background-color: #0c4b45;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .btn-shop {
+      background-color: $colorGreen;
+      color: $colorWhite;
+      border: 1px solid $colorWhite;
+      align-self: flex-start;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $colorWhite;
+        color: $colorGreen;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.accordion-item button {
+  color: $colorGreen;
+  font-family: $heading-Font;
+  font-weight: 700;
+}
