@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h4 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  line-height: 1.1em;
+}
+
+h6 {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Work Sans", sans-serif;
+}
+
+button {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid white;
+  border-radius: 0;
+  color: white;
+  padding: 15px 30px;
+  line-height: 1em;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+#about-page {
+  display: flex;
+  flex-direction: column;
+}
+#about-page .container-fluid-1 {
+  background-color: #025048;
+}
+#about-page .container-fluid-1 h1,
+#about-page .container-fluid-1 p {
+  color: white;
+}
+#about-page .container-fluid-1 .container .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#about-page .container-fluid-1 .container .row .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#about-page .container-fluid-1 .container .row h1 {
+  font-size: 4.125rem;
+}
+#about-page .container-fluid-1 .container .row .img-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+}
+@media (max-width: 1024px) {
+  #about-page .container-fluid-1 .container .row {
+    flex-direction: column;
+  }
+  #about-page .container-fluid-1 .container .row h1,
+  #about-page .container-fluid-1 .container .row p {
+    text-align: center;
+  }
+}
+#about-page .container-fluid-2 {
+  background-color: white;
+  margin-top: 100px;
+}
+#about-page .container-fluid-2 h6,
+#about-page .container-fluid-2 h2 {
+  color: #025048;
+}
+#about-page .container-fluid-2 h2 {
+  font-size: 3rem;
+  line-height: 1.2em;
+}
+#about-page .container-fluid-2 .img-container img {
+  width: 100%;
+}
+#about-page .container-fluid-3 {
+  background-color: #f1f4f1;
+  margin-top: 100px;
+}
+#about-page .container-fluid-3 .img-container {
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+}
+#about-page .container-fluid-3 .img-container img {
+  width: 100%;
+}
+#about-page .container-fluid-3 .img-container .text-section {
+  padding: 25px;
+}
+#about-page .container-fluid-3 h6,
+#about-page .container-fluid-3 h2 {
+  color: #025048;
+}
+#about-page .container-fluid-3 h2 {
+  font-size: 34px;
+  line-height: 1.2em;
+}
+@media (max-width: 1024px) {
+  #about-page .container-fluid-3 .container .row {
+    flex-direction: column;
+  }
+  #about-page .container-fluid-3 .container .row h6,
+  #about-page .container-fluid-3 .container .row h2,
+  #about-page .container-fluid-3 .container .row p {
+    text-align: center;
+  }
+}
+#about-page .container-fluid-4 {
+  background-color: white;
+  margin-top: 50px;
+}
+#about-page .container-fluid-4 h3 {
+  color: #025048;
+  font-family: "Playfair Display", serif;
+  font-size: 1.875rem;
+}
+@media (max-width: 1024px) {
+  #about-page .container-fluid-4 h3,
+  #about-page .container-fluid-4 p {
+    text-align: center;
+  }
+}
+#about-page .ceramic-artistry {
+  padding: 0;
+  overflow: hidden;
+}
+#about-page .ceramic-artistry .row {
+  margin: 0;
+  display: flex;
+}
+#about-page .ceramic-artistry .image-container,
+#about-page .ceramic-artistry .content-container {
+  padding: 0;
+  flex: 1;
+}
+#about-page .ceramic-artistry .image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#about-page .ceramic-artistry .content-container {
+  background-color: #0c4b45;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+#about-page .ceramic-artistry .content-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+#about-page .ceramic-artistry .content-container .btn-shop {
+  background-color: #025048;
+  color: white;
+  border: 1px solid white;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+#about-page .ceramic-artistry .content-container .btn-shop:hover {
+  background-color: white;
+  color: #025048;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 1024px) {
+  #about-page .ceramic-artistry .row {
+    flex-direction: column;
+  }
+  #about-page .image-container,
+  #about-page .content-container {
+    width: 100%;
+  }
+  #about-page .content-container {
+    text-align: center;
+  }
+  #about-page .ceramic-artistry .content-container .btn-shop {
+    align-self: center;
+  }
+}/*# sourceMappingURL=about.component.css.map */

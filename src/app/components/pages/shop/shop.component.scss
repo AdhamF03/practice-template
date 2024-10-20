@@ -1,0 +1,26 @@
+@import "../../../../styles.scss";
+
+.shop-title {
+  display: flex;
+
+  h1 {
+    font-size: 40px;
+    color: $colorGreen;
+    font-family: $heading-Font;
+    font-weight: bold;
+  }
+}
+
+.shop-line {
+  margin-bottom: 40px;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prodict-row {
+  justify-content: space-between;
+  align-items: center;
+}

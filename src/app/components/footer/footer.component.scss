@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+
+.footer {
+  background-color: $colorGrey;
+  border-bottom-style: groove;
+  border-width: 2px;
+  padding-top: 60px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 30px;
+
+  .logo a {
+    text-decoration: none;
+    color: $colorGreen;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.footer .center ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 1.2em;
+  justify-content: space-between;
+  color: black;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.footer-end .socials {
+  display: flex;
+  justify-content: flex-end;
+  font-size: large;
+}
+.footer-end .socials .fa-brands {
+  margin-left: 15px;
+}
+
+.footer-2 {
+  background-color: $colorGrey;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.copyright h3 {
+  display: flex;
+  font-size: 17px;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: lighter;
+}
+
+.rights h3 {
+  display: flex;
+  font-size: 17px;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: lighter;
+}
