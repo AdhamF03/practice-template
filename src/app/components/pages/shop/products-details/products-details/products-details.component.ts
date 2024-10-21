@@ -13,13 +13,19 @@ import { CommonModule } from '@angular/common';
 export class ProductsDetailsComponent implements OnInit {
   readonly router = inject(Router);
   product: any;
-  inputValue: number = 1;
+  quantity: number = 1;
+
+  // Change the quantity of the product
+  changeQuantity(change: number): void {
+    this.quantity = Math.max(1, this.quantity + change);
+  }
 
   constructor(
     private route: ActivatedRoute,
     private service: ServiceService
   ) {}
 
+  // Get the product by id
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');

@@ -1,16 +1,15 @@
 @import "../../../styles.scss";
 
+section{
+ background-color: $colorGreen;
+}
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100px;
-  position: sticky;
-  left: 0;
-  top: 0;
-  background-color: $colorGreen;
-  padding: 0 14.2%;
+
   z-index: 999;
   position: relative;
 
@@ -50,16 +49,16 @@ nav {
     font-family: $heading-Font;
   }
 
-  .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  // .center {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
 
-    a {
-      text-transform: uppercase;
-    }
-  }
+  //   a {
+  //     text-transform: uppercase;
+  //   }
+  // }
 }
 
 .shop-cart {

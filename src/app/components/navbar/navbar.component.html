@@ -1,39 +1,44 @@
-<nav>
-  <ul class="left">
-    <li>
-      <a class="brand" routerLink="">CeramicShop</a>
-    </li>
-  </ul>
+<section>
+  <div class="container">
+    <nav>
+      <ul class="left">
+        <li class="p-0">
+          <a class="brand" routerLink="">CeramicShop</a>
+        </li>
+      </ul>
 
-  <ul class="center">
-    <li>
-      <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
-    </li>
-    <li>
-      <a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
-    </li>
-    <li>
-      <a [routerLink]="['/shop']" routerLinkActive="router-link-active" >Shop</a>
-    </li>
-    <li>
-      <a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
-    </li>
-  </ul>
+      <ul class="center">
+        <li>
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
+        </li>
+        <li>
+          <a [routerLink]="['/shop']" routerLinkActive="router-link-active" >Shop</a>
+        </li>
+        <li>
+          <a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
+        </li>
+      </ul>
 
-  <ul class="right">
-    <li>
-      <a>
-        <div class="shop-cart">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </div>
-      </a>
-    </li>
-  </ul>
+      <ul class="right">
+        <li class="p-0">
+          <a>
+            <div class="shop-cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+          </a>
+        </li>
+      </ul>
 
-  <button class="close collapse" onclick="onClickBtn( )">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-</nav>
+      <button class="close collapse" onclick="onClickBtn( )">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </div>
+</section>
+
 
 <div class="sidebar collpase">
   <button class="close">
