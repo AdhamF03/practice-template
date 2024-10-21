@@ -6,8 +6,9 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
-import { ShopComponent } from './components/pages/shop/shop.component';
+import { ShopComponent } from './components/pages/shop/shop-products/shop.component';
 import { ProductsDetailsComponent } from './components/pages/shop/products-details/products-details/products-details.component';
+import { ServiceService } from './core/services/service.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +22,7 @@ import { ProductsDetailsComponent } from './components/pages/shop/products-detai
     ShopComponent,
     ProductsDetailsComponent,
   ],
+  providers: [ServiceService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

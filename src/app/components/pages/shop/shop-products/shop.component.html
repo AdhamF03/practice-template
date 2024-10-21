@@ -6,7 +6,7 @@
       </div>
       <hr class="shop-line" />
     </div>
-
+    <!-- filtering and diplaying total -->
     <div class="product-info">
       <div class="total-items"><p>Showing all 11 results</p></div>
       <div class="filter">
@@ -29,12 +29,28 @@
         </div>
       </div>
     </div>
-
-    <div class="container-xl">
-      <div class="row product-row">
-        <div class="col-md-4">1</div>
-        <div class="col-md-4">2</div>
-        <div class="col-md-4">3</div>
+    <!-- PRODUCT DISPLAY SECTION -->
+    <div class="container">
+      <div class="row product-list">
+        <div class="col-md-4 product-item" *ngFor="let products of products">
+          <div class="product-image">
+            <img [src]="products.mainImage" alt="{{ products.name }}" />
+            <span class="sale-badge"></span>
+          </div>
+          <span style="opacity: 0.6">{{ products.category }}</span>
+          <h4>{{ products.name }}</h4>
+          <span class="product-rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </span>
+          <p class="price">
+            <span class="old-price">$237.00</span
+            >{{ " " + "$" + products.price }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
