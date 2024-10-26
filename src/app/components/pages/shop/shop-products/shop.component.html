@@ -6,49 +6,62 @@
       </div>
       <hr class="shop-line" />
     </div>
-    <!-- filtering and diplaying total -->
-    <div class="product-info">
-      <div class="total-items"><p>Showing all 11 results</p></div>
-      <div class="filter">
-        <div class="dropdown">
-          <a
-            class="btn btn-secondary dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dropdown link
-          </a>
 
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <!-- Filtering and Displaying Total Products -->
+    <div class="container">
+      <div class="product-info">
+        <div class="total-items">
+          <p>Showing all {{ totalProducts }} results</p>
+        </div>
+        <div class="filter-category">
+          <ul>
+            <li>
+              <button (click)="filterByCeramic()">CERAMIC</button>
+            </li>
+            <li>
+              <button (click)="filterByPottery()">CERAMIC COATINGS</button>
+            </li>
+            <li>
+              <button (click)="filterByKitchenware()">
+                CERMAIC KICHENWARE
+              </button>
+            </li>
           </ul>
+        </div>
+        <div class="filter-price">
+          <!-- Dropdown Button for Sorting -->
+          <div class="dropdown">
+            <button class="dropbtn">{{ currentSort }}</button>
+            <div class="dropdown-content">
+              <a (click)="restoreDefault()">Sort by popularity</a>
+              <a (click)="restoreDefault()">Sort by average rating</a>
+              <a (click)="sortLowToHigh()">Sort by price: low to high</a>
+              <a (click)="sortHighToLow()">Sort by price: high to low</a>
+              <a (click)="restoreDefault()">Default sorting</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- PRODUCT DISPLAY SECTION -->
+
+    <!-- Product Display Section -->
     <div class="container">
       <div class="row product-list">
-        <div class="col-md-4 product-item" *ngFor="let products of products">
-          <div class="product-image">
-            <img [src]="products.mainImage" alt="{{ products.name }}" />
-            <span class="sale-badge"></span>
-          </div>
-          <span style="opacity: 0.6">{{ products.category }}</span>
-          <h4>{{ products.name }}</h4>
+        <div class="col-md-4 product-item" *ngFor="let product of products">
+          <a (click)="router.navigate(['shop', product.id])">
+            <div class="product-image">
+              <img [src]="product.mainImage" alt="{{ product.name }}" />
+              <span class="sale-badge"></span>
+            </div>
+          </a>
+          <span style="opacity: 0.6">{{ product.category }}</span>
+          <h4 class="product-name">{{ product.name }}</h4>
           <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+            <i class="fa fa-star" *ngFor="let star of [1, 2, 3, 4, 5]"></i>
           </span>
           <p class="price">
-            <span class="old-price">$237.00</span
-            >{{ " " + "$" + products.price }}
+            <span class="old-price">{{ product.oldPrice }}</span>
+            {{ " $" + product.currentPrice }}
           </p>
         </div>
       </div>

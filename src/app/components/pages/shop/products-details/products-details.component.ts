@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServiceService } from '../../../../../core/services/service.service';
+import { ServiceService } from '../../../../core/services/service.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,14 +20,11 @@ export class ProductsDetailsComponent implements OnInit {
     this.quantity = Math.max(1, this.quantity + change);
   }
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: ServiceService
-  ) {}
+  constructor(private route: ActivatedRoute, private service: ServiceService) {}
 
   // Get the product by id
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       this.product = this.service.getProductById(Number(id));
     });
