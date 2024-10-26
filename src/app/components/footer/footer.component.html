@@ -1,14 +1,13 @@
 <footer class="footer">
-  <div class="container-xl">
-    <div class="row">
-      <div class="col-md-4 logo"><a href="#">CeramicShop</a></div>
-
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-4 logo"><a [routerLink]="['/home']">CeramicShop</a></div>
       <div class="col-md-4 center">
-        <ul>
-          <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a></li>
-          <li><a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
-          <li><a [routerLink]="['/shop']" routerLinkActive="router-link-active" >Shop</a></li>
-          <li><a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a></li>
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active">About</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/shop']" routerLinkActive="router-link-active">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</a></li>
         </ul>
       </div>
       <div class="col-md-4 footer-end">
@@ -23,11 +22,11 @@
   </div>
 </footer>
 <div class="footer-2">
-  <div class="container-xl">
-    <div class="row second-half">
+  <div class="container-fluid">
+    <div class="row second-half align-items-center">
       <div class="col-md-6">
         <div class="copyright">
-          <h3>copyright © 2024</h3>
+          <h3>Copyright © 2024</h3>
         </div>
       </div>
       <div class="col-md-6">

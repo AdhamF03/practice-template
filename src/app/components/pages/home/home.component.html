@@ -7,7 +7,7 @@
           <h6>welcome to ceramic shop</h6>
           <h1>Elevate Your Space with Ceramic Elegance.</h1>
           <h4>Starting from just $149.00</h4>
-          <button class="btn-shop">shop now</button>
+          <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
         </div>
         <div class="col-xl-6 img-container">
           <div class="img-overlay-1">
@@ -21,7 +21,7 @@
   <div class="container-fluid-2">
     <div class="container">
       <div class="row">
-        <div class="col-12 section">
+        <div class="col-lg-12 section">
           <h6>About Ceramic Shop</h6>
           <h2>
             The versatility of ceramics is what makes them truly remarkable,
@@ -31,10 +31,10 @@
         </div>
       </div>
       <div class="row about-container">
-        <div class="col-md-6 img-container-1">
+        <div class="col-lg-6 img-container-1">
           <img src="img/about-01.jpg" alt="about-01" />
         </div>
-        <div class="col-md-6 img-container-2">
+        <div class="col-lg-6 img-container-2">
           <img src="img/about-02.jpg" alt="about-02" />
           <h4>
             Welcome to Ceramic Shop, where passion meets craftsmanship to bring
@@ -45,7 +45,7 @@
             tells a unique story. Get to know the heart and soul behind our
             store.
           </p>
-          <button class="btn-readMore">read more</button>
+          <button class="btn-readMore" (click)="router.navigate(['/about'])">read more</button>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
   <div class="container-fluid-3">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 section product-container-1">
+        <div class="col-lg-6 section product-container-1">
           <h6>The Best Of Ceramics</h6>
           <div class="product-container-1-text">
             <h2>Our Products Category​</h2>
@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 section product-container-2">
+        <div class="col-lg-6 section product-container-2">
           <div class="product-container-2-img">
             <img src="img/category-02.jpg" alt="category-02" />
             <div class="product-overlay">
@@ -98,13 +98,15 @@
       <h6>Most Popular</h6>
       <h2>Discover the Latest Additions at Your Top Choice Flower Shop</h2>
       <div class="row product-list">
-        <div class="col-md-4 product-item">
+        <div class="col-md-4 product-item" *ngFor="let product of saleProducts">
           <div class="product-image">
-            <img src="img/ceramic-cup-01-300x300.jpg" alt="Ceramic Cup" />
-            <span class="sale-badge">Sale!</span>
+            <a (click)="router.navigate(['/shop', product.id])">
+              <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
+            </a>
+            <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
           </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Cup</h4>
+          <span style="opacity: 0.6">{{ product.category }}</span>
+          <h4>{{ product.name }}</h4>
           <span class="product-rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -112,101 +114,10 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
           </span>
-          <p class="price"><span class="old-price">$237.00</span> $189.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img
-              src="img/ceramic-planter-01-300x300.jpg"
-              alt="Ceramic Planter"
-            />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Pottery</span>
-          <h4>Ceramic Planter</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$349.00</span> $299.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img src="img/product-01-300x300.jpg" alt="Ceramic Plates" />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Plates</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$179.00</span> $119.00</p>
-        </div>
-      </div>
-      <div class="row product-list">
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img
-              src="img/product-02-300x300.jpg"
-              alt="Ceramic Plates and Bowls"
-            />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Plates and Bowls</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$249.00</span> $209.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img
-              src="img/product-07-300x300.jpg"
-              alt="Ceramic Plates and Spoons"
-            />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Plates and Spoons</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$349.00</span> $299.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img
-              src="img/contact-01-300x300.jpg"
-              alt="Ceramic Vases and Planters"
-            />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Pottery</span>
-          <h4>Ceramic Vases and Planters</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$247.00</span> $217.00</p>
+          <p class="price">
+            <span class="old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
+            ${{ product.currentPrice }}
+          </p>
         </div>
       </div>
     </div>
@@ -216,7 +127,7 @@
     <div class="ceramic-journey-content">
       <h2>Begin Your Ceramic Journey Explore Our Stunning Collections</h2>
       <h4>Starting from just $149.00</h4>
-      <button class="btn-shop">shop now</button>
+      <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
     </div>
   </div>
   <!-- Trending now Section -->
@@ -225,12 +136,15 @@
       <h6>Trending Now</h6>
       <h2>Minimalist Ceramic Designs</h2>
       <div class="row product-list">
-        <div class="col-md-4 product-item">
+        <div class="col-md-4 product-item" *ngFor="let product of trendingProducts">
           <div class="product-image">
-            <img src="img/product-09-300x300.jpg" alt="Ceramic Bottles" />
+            <a (click)="router.navigate(['/shop', product.id])">
+              <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
+            </a>
+            <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
           </div>
-          <span style="opacity: 0.6">Pottery</span>
-          <h4>Ceramic Bottles</h4>
+          <span style="opacity: 0.6">{{ product.category }}</span>
+          <h4>{{ product.name }}</h4>
           <span class="product-rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -238,39 +152,10 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
           </span>
-          <p class="price">$249.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img src="img/ceramic-cup-01-300x300.jpg" alt="Ceramic Cup" />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Cup</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$237.00</span> $189.00</p>
-        </div>
-        <div class="col-md-4 product-item">
-          <div class="product-image">
-            <img src="img/product-03-300x300.jpg" alt="Ceramic Plates" />
-            <span class="sale-badge">Sale!</span>
-          </div>
-          <span style="opacity: 0.6">Ceramic</span>
-          <h4>Ceramic Drink Coasters</h4>
-          <span class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </span>
-          <p class="price"><span class="old-price">$157.00</span> $99.00</p>
+          <p class="price">
+            <span class="old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
+            ${{ product.currentPrice }}
+          </p>
         </div>
       </div>
     </div>
@@ -339,7 +224,7 @@
       </div>
       <div class="col-lg-6 content-container">
         <h2>Uncover the World of Ceramic Artistry Start Your Journey Here!</h2>
-        <button class="btn-shop">shop now</button>
+        <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
       </div>
     </div>
   </div>

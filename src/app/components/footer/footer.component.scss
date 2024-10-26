@@ -2,30 +2,24 @@
 
 .footer {
   background-color: $colorGrey;
-  border-bottom-style: groove;
-  border-width: 2px;
-  padding-top: 60px;
-  padding-right: 40px;
-  padding-left: 40px;
-  padding-bottom: 30px;
+  border-bottom: 1.5px groove;
+  padding: 60px 40px 30px;
 
   .logo a {
+    font-family: $heading-Font;
     text-decoration: none;
     color: $colorGreen;
     font-size: 20px;
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
   }
 }
-.footer .center ul {
-  display: flex;
-  list-style-type: none;
+
+.footer .center .nav {
+  list-style: none;
   font-size: 1.2em;
-  justify-content: space-between;
   color: black;
 
-  a {
+  .nav-link {
     text-decoration: none;
     color: black;
   }
@@ -35,30 +29,53 @@
   display: flex;
   justify-content: flex-end;
   font-size: large;
-}
-.footer-end .socials .fa-brands {
-  margin-left: 15px;
+
+  .fa-brands {
+    margin-left: 15px;
+  }
 }
 
 .footer-2 {
   background-color: $colorGrey;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 40px;
-  padding-left: 40px;
-}
-.copyright h3 {
-  display: flex;
-  font-size: 17px;
-  justify-content: flex-start;
-  align-items: center;
-  font-weight: lighter;
+  padding: 30px 40px;
 }
 
-.rights h3 {
+h3 {
   display: flex;
   font-size: 17px;
-  justify-content: flex-end;
   align-items: center;
   font-weight: lighter;
+}
+.rights {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .footer,
+  .logo,
+  .copyright,
+  .rights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .socials {
+    padding: 10px 0;
+  }
+
+  .footer .center .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-end .socials {
+    justify-content: center;
+  }
+
+  .footer-2 .row.second-half {
+    display: flex;
+    justify-content: space-between;
+  }
 }

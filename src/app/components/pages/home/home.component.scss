@@ -1,9 +1,6 @@
 @import "../../../../styles.scss";
 
 #home-page {
-  display: flex;
-  flex-direction: column;
-
   // Welcome Section
   .container-fluid-1 {
     background-color: $colorGreen;
@@ -92,9 +89,6 @@
 
       .img-container-1,
       .img-container-2 {
-        width: 100%;
-        max-width: 47%;
-
         img {
           width: 100%;
         }
@@ -136,7 +130,13 @@
 
     @media (max-width: 1024px) {
       .about-container {
-        flex-direction: column;
+        gap: 40px 0;
+      }
+
+      .section {
+        h2 {
+          font-size: 35px;
+        }
       }
     }
   }
@@ -147,11 +147,10 @@
     margin-top: 100px;
 
     .container .row {
-      margin-top: 25px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      gap: 60px 0;
 
       h6 {
         color: $colorGreen;
@@ -165,15 +164,11 @@
       .product-container-2 {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        max-width: 48%;
         gap: 60px 0;
 
         .product-container-1-text,
         .product-container-1-img,
         .product-container-2-img {
-          width: 100%;
-          max-width: 90%;
           position: relative;
 
           img {
@@ -187,7 +182,6 @@
             bottom: 20px;
             background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            max-width: 80%;
 
             h4,
             p {
@@ -206,9 +200,8 @@
       }
 
       @media (max-width: 1024px) {
-        .product-container-1,
-        .product-container-2 {
-          max-width: 100%;
+        .product-container-1 {
+          margin-top: 25px;
         }
       }
     }
@@ -246,10 +239,13 @@
 
           img {
             width: 100%;
-            display: block;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
           }
 
           .sale-badge {
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
             position: absolute;
             top: 1.5em;
             left: 1.5em;

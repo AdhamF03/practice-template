@@ -3,22 +3,30 @@
     <nav>
       <ul class="left">
         <li class="p-0">
-          <a class="brand" routerLink="">CeramicShop</a>
+          <a class="brand" [routerLink]="['/home']">CeramicShop</a>
         </li>
       </ul>
 
       <ul class="center">
         <li>
-          <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+            >Home</a
+          >
         </li>
         <li>
-          <a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
+          <a [routerLink]="['/about']" routerLinkActive="router-link-active"
+            >About</a
+          >
         </li>
         <li>
-          <a [routerLink]="['/shop']" routerLinkActive="router-link-active" >Shop</a>
+          <a [routerLink]="['/shop']" routerLinkActive="router-link-active"
+            >Shop</a
+          >
         </li>
         <li>
-          <a [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
+          <a [routerLink]="['/contact']" routerLinkActive="router-link-active"
+            >Contact</a
+          >
         </li>
       </ul>
 
@@ -32,37 +40,44 @@
         </li>
       </ul>
 
-      <button class="close collapse" onclick="onClickBtn( )">
-        <i class="fa-solid fa-bars"></i>
+      <button class="close collapse" (click)="onClickBtn()">
+        <i
+          [ngClass]="{ 'fa-bars': !isSidebarOpen, 'fa-times': isSidebarOpen }"
+          class="fa-solid"
+        ></i>
       </button>
     </nav>
   </div>
 </section>
 
+<div class="backdrop" (click)="closeSidebar()" *ngIf="isSidebarOpen"></div>
 
-<div class="sidebar collpase">
-  <button class="close">
-    <i class="fa-solid fa-bars"></i>
+<div
+  class="sidebar"
+  [ngClass]="{ open: isSidebarOpen, collapse: !isSidebarOpen }"
+>
+  <button class="close" (click)="onClickBtn()">
+    <i class="fa-solid fa-times"></i>
   </button>
   <ul>
     <li>
-      <a>Home</a>
+      <a [routerLink]="['/home']">Home</a>
     </li>
     <li>
-      <a>About</a>
+      <a [routerLink]="['/about']">About</a>
     </li>
     <li>
-      <a>Shop</a>
+      <a [routerLink]="['/shop']">Shop</a>
     </li>
     <li>
-      <a>Contact</a>
+      <a [routerLink]="['/contact']">Contact</a>
     </li>
 
     <li>
       <hr />
     </li>
 
-    <li>
+    <li class="shop-cart-item">
       <div class="shop-cart">
         <i class="fa-solid fa-cart-shopping"></i>
       </div>
