@@ -103,6 +103,10 @@
             <a (click)="router.navigate(['/shop', product.id])">
               <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
             </a>
+            <span class="cart-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="add-to-cart-badge">Add to cart</span>
+            </span>
             <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
           </div>
           <span style="opacity: 0.6">{{ product.category }}</span>
@@ -141,6 +145,10 @@
             <a (click)="router.navigate(['/shop', product.id])">
               <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
             </a>
+            <span class="cart-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="add-to-cart-badge">Add to cart</span>
+            </span>
             <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
           </div>
           <span style="opacity: 0.6">{{ product.category }}</span>

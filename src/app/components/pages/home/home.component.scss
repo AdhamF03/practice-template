@@ -232,7 +232,7 @@
         width: 100%;
         max-width: 30%;
         margin-bottom: 30px;
-        text-align: center;
+        text-align: left;
 
         .product-image {
           position: relative;
@@ -255,6 +255,46 @@
             font-size: 0.87em;
             border-radius: 20px;
             font-weight: 500;
+          }
+
+          .cart-icon {
+            cursor: pointer;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+            position: absolute;
+            top: 1.5em;
+            right: 1.5em;
+            background-color: $colorWhite;
+            color: $colorGreen;
+            padding: 0.1em 0.8em;
+            font-size: 0.87em;
+            border-radius: 20px;
+            font-weight: 500;
+            opacity: 0; // Initially hidden
+            transform: translateY(-10px); // Start position for animation
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; // Add transition for animation
+
+            .add-to-cart-badge {
+              display: none; // Initially hidden
+              position: absolute;
+              left: 50%; // Center horizontally
+              top: 100%; // Position below the cart icon
+              transform: translateX(-50%); // Center the badge
+              background-color: $colorGreen;
+              color: $colorWhite;
+              padding: 0.2em 0.5em;
+              border-radius: 5px;
+              font-size: 0.75em;
+              white-space: nowrap;
+            }
+          }
+
+          &:hover .cart-icon {
+            opacity: 1; // Fully visible on hover
+            transform: translateY(0); // Move to final position
+          }
+
+          .cart-icon:hover .add-to-cart-badge {
+            display: block; // Show badge on cart icon hover
           }
         }
 
