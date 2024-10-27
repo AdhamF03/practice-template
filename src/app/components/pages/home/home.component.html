@@ -7,7 +7,9 @@
           <h6>welcome to ceramic shop</h6>
           <h1>Elevate Your Space with Ceramic Elegance.</h1>
           <h4>Starting from just $149.00</h4>
-          <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
+          <button class="btn-shop" (click)="router.navigate(['/shop'])">
+            shop now
+          </button>
         </div>
         <div class="col-xl-6 img-container">
           <div class="img-overlay-1">
@@ -45,7 +47,9 @@
             tells a unique story. Get to know the heart and soul behind our
             store.
           </p>
-          <button class="btn-readMore" (click)="router.navigate(['/about'])">read more</button>
+          <button class="btn-readMore" (click)="router.navigate(['/about'])">
+            read more
+          </button>
         </div>
       </div>
     </div>
@@ -100,9 +104,14 @@
       <div class="row product-list">
         <div class="col-md-4 product-item" *ngFor="let product of saleProducts">
           <div class="product-image">
-            <a (click)="router.navigate(['/shop', product.id])">
-              <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
-            </a>
+            <img
+              (click)="router.navigate(['/shop', product.id])"
+              class="product-img"
+              [src]="product.mainImage"
+              [alt]="product.name"
+              style="cursor: pointer"
+            />
+
             <span class="cart-icon">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="add-to-cart-badge">Add to cart</span>
@@ -119,7 +128,9 @@
             <i class="fa fa-star"></i>
           </span>
           <p class="price">
-            <span class="old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
+            <span class="old-price" *ngIf="product.oldPrice">{{
+              product.oldPrice
+            }}</span>
             ${{ product.currentPrice }}
           </p>
         </div>
@@ -131,7 +142,9 @@
     <div class="ceramic-journey-content">
       <h2>Begin Your Ceramic Journey Explore Our Stunning Collections</h2>
       <h4>Starting from just $149.00</h4>
-      <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
+      <button class="btn-shop" (click)="router.navigate(['/shop'])">
+        shop now
+      </button>
     </div>
   </div>
   <!-- Trending now Section -->
@@ -140,10 +153,17 @@
       <h6>Trending Now</h6>
       <h2>Minimalist Ceramic Designs</h2>
       <div class="row product-list">
-        <div class="col-md-4 product-item" *ngFor="let product of trendingProducts">
+        <div
+          class="col-md-4 product-item"
+          *ngFor="let product of trendingProducts"
+        >
           <div class="product-image">
             <a (click)="router.navigate(['/shop', product.id])">
-              <img [src]="product.mainImage" [alt]="product.name" style="cursor: pointer;" />
+              <img
+                [src]="product.mainImage"
+                [alt]="product.name"
+                style="cursor: pointer"
+              />
             </a>
             <span class="cart-icon">
               <i class="fa-solid fa-cart-shopping"></i>
@@ -161,7 +181,9 @@
             <i class="fa fa-star"></i>
           </span>
           <p class="price">
-            <span class="old-price" *ngIf="product.oldPrice">{{ product.oldPrice }}</span>
+            <span class="old-price" *ngIf="product.oldPrice">{{
+              product.oldPrice
+            }}</span>
             ${{ product.currentPrice }}
           </p>
         </div>
@@ -232,7 +254,9 @@
       </div>
       <div class="col-lg-6 content-container">
         <h2>Uncover the World of Ceramic Artistry Start Your Journey Here!</h2>
-        <button class="btn-shop" (click)="router.navigate(['/shop'])">shop now</button>
+        <button class="btn-shop" (click)="router.navigate(['/shop'])">
+          shop now
+        </button>
       </div>
     </div>
   </div>
