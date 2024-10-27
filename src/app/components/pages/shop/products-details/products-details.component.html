@@ -201,7 +201,7 @@
         *ngFor="let relatedProduct of relatedProducts"
       >
         <a (click)="router.navigate(['/shop', relatedProduct.id])">
-          <img [src]="relatedProduct.mainImage" [alt]="relatedProduct.name"/>
+          <img [src]="relatedProduct.mainImage" [alt]="relatedProduct.name" />
           <span class="sale-badge" *ngIf="relatedProduct.oldPrice">Sale!</span>
         </a>
         <p class="category">{{ relatedProduct.category }}</p>
