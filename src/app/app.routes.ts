@@ -4,6 +4,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { ProductsDetailsComponent } from './components/pages/shop/products-details/products-details.component';
 import { ShopComponent } from './components/pages/shop/shop-products/shop.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
+// import { CheckoutComponent } from './components/pages/shop/checkout/checkout.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'shop/:id', component: ProductsDetailsComponent },
+  // { path: 'checkout', component: CheckoutComponent },
 ];
