@@ -2,11 +2,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ServiceService } from '../../../../core/services/service.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ScrollToTopComponent } from "../../../shared/scroll-to-top/scroll-to-top.component";
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollToTopComponent],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
 })
@@ -22,6 +23,7 @@ export class ShopComponent implements OnInit {
   saleProducts: any;
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     // Get all products from the service and store
     this.products = this.service.products;
     this.originalProducts = [...this.products];
