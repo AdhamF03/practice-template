@@ -191,6 +191,7 @@ export class ServiceService {
     },
   ];
 
+  // Function to get a product by its ID
   getProductById(id: number) {
     return this.products.find((product) => product.id === id);
   }

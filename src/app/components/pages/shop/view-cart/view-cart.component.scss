@@ -1,0 +1,122 @@
+@import "../../../../../styles.scss";
+
+// Container Styling
+.container-fluid {
+  padding: 60px 0;
+}
+
+// Heading Styling
+h1,
+h2 {
+  color: $colorGreen;
+  font-weight: 600;
+}
+
+// Cart Container Styling
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// Cart Items Styling
+.cart-items {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+// Cart Totals Styling
+.cart-totals {
+  width: 100%;
+  height: fit-content;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+// Quantity Selector Styling
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #ccc;
+  width: fit-content;
+
+  // Button styling
+  button {
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+
+  // Input styling
+  input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 8px 0;
+    font-size: 16px;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Button Styling
+button {
+  border: 1px solid $colorGreen;
+  background-color: $colorWhite;
+  color: $colorGreen;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 10px 0;
+
+  &:hover {
+    background-color: $colorGreen;
+    color: $colorWhite;
+  }
+}
+
+// Media Query Styling
+@media (min-width: 990px) {
+  .cart-items {
+    width: 60%;
+  }
+
+  .cart-totals {
+    width: 35%;
+  }
+}

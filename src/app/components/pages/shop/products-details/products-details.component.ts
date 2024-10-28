@@ -1,13 +1,15 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../../../../core/services/service.service';
 import { CommonModule } from '@angular/common';
 import { ScrollToTopComponent } from '../../../shared/scroll-to-top/scroll-to-top.component';
+import { CartService } from '../../../../core/services/cart.service';
+import { ToastComponent } from '../../../shared/toast/toast.component';
 
 @Component({
   selector: 'app-products-details',
   standalone: true,
-  imports: [CommonModule, ScrollToTopComponent],
+  imports: [CommonModule, ScrollToTopComponent, ToastComponent],
   templateUrl: './products-details.component.html',
   styleUrl: './products-details.component.scss',
 })
@@ -29,7 +31,13 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
     this.quantity = Math.max(1, this.quantity + change);
   }
 
-  constructor(private route: ActivatedRoute, private service: ServiceService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: ServiceService,
+    private cartService: CartService
+  ) {}
+
+  @ViewChild(ToastComponent) toast!: ToastComponent;
 
   // Get the product by id & Randomly select 4 products
   ngOnInit() {
@@ -142,5 +150,11 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
     if (this.product.id < this.service.products.length) {
       this.router.navigate(['/shop', this.product.id + 1]);
     }
+  }
+
+  // Method to add product to cart and show toast
+  addToCart(): void {
+    this.cartService.addToCart(this.product, this.quantity);
+    this.toast.showToast(`${this.product.name} added to cart!`);
   }
 }
