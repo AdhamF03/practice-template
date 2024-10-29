@@ -38,6 +38,7 @@
           <a (click)="toggleCartSidebar()">
             <div class="shop-cart">
               <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-counter" *ngIf="totalQuantity > 0">{{ totalQuantity }}</span>
             </div>
           </a>
         </li>
@@ -84,9 +85,10 @@
     </li>
 
     <!-- Shopping cart icon in sidebar -->
-    <li class="shop-cart-item">
+    <li class="shop-cart-item" (click)="toggleCartSidebar()">
       <div class="cart-icon">
         <i class="fa fa-shopping-cart"></i>
+        <span class="cart-counter" *ngIf="totalQuantity > 0">{{ totalQuantity }}</span>
       </div>
     </li>
   </ul>
@@ -95,7 +97,7 @@
 <!-- Cart sidebar -->
 <div class="cart-sidebar" [ngClass]="{ open: isCartSidebarOpen }">
   <div class="cart-header">
-    <h2>Shopping Cart</h2>
+    <h4>Shopping Cart</h4>
     <button class="close" (click)="toggleCartSidebar()">
       <i class="fa-solid fa-times"></i>
     </button>

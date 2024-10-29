@@ -1,23 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { CartService } from '../../../../core/services/cart.service';
 import { ScrollToTopComponent } from "../../../shared/scroll-to-top/scroll-to-top.component";
-
+import { Subscription } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-view-cart',
   standalone: true,
-  imports: [MatTableModule, ScrollToTopComponent],
+  imports: [MatTableModule, ScrollToTopComponent, RouterLink],
   templateUrl: './view-cart.component.html',
   styleUrls: ['./view-cart.component.scss']
 })
-export class ViewCartComponent implements OnInit {
+export class ViewCartComponent implements OnInit, OnDestroy {
   cartItems: any[] = [];
   displayedColumns: string[] = ['product', 'price', 'quantity', 'subtotal', 'actions'];
+  private cartSubscription: Subscription = new Subscription(); // Initialize subscription
 
   constructor(private cartService: CartService) {}
+  readonly router = inject(Router);
 
+  // Subscribe to cart items
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems();
+    this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+  }
+
+  // Unsubscribe from cart items
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
   }
 
   // Get Subtotal

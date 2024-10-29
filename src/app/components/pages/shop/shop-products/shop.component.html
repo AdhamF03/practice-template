@@ -15,18 +15,36 @@
       <div class="filter-category">
         <ul>
           <li>
-            <button (click)="filterByCeramic()">CERAMIC</button>
+            <button
+              (click)="filterByCeramic()"
+              [class.active]="selectedCategory === 'Ceramic'"
+            >
+              CERAMIC
+            </button>
           </li>
           <li>
-            <button (click)="filterByPottery()">CERAMIC COATINGS</button>
+            <button
+              (click)="filterByPottery()"
+              [class.active]="selectedCategory === 'Pottery'"
+            >
+              CERAMIC COATINGS
+            </button>
           </li>
           <li>
-            <button (click)="filterByKitchenware()">CERMAIC KICHENWARE</button>
+            <button
+              (click)="filterByKitchenware()"
+              [class.active]="selectedCategory === 'Ceramic Kitchenware'"
+            >
+              CERAMIC KICHENWARE
+            </button>
           </li>
         </ul>
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">
+          {{ currentSort }}
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
         <div class="dropdown-content">
           <a (click)="restoreDefault()">Sort by popularity</a>
           <a (click)="restoreDefault()">Sort by average rating</a>
@@ -50,7 +68,7 @@
                 style="cursor: pointer"
               />
 
-              <span class="cart-icon">
+              <span class="cart-icon" (click)="addToCart(product)">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="add-to-cart-badge">Add to cart</span>
               </span>
@@ -76,6 +94,6 @@
       </div>
     </div>
   </div>
-
 </div>
+<app-toast></app-toast>
 <app-scroll-to-top></app-scroll-to-top>

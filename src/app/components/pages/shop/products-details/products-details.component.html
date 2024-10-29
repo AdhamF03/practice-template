@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-4 thumbnail-images">
           <img
-            *ngFor="let thumbnail of product?.thumbnailImages"
+            *ngFor="let thumbnail of product.thumbnailImages"
             [src]="thumbnail.url"
             alt="Thumbnail"
             (click)="updateMainImage(thumbnail.url)"
@@ -82,7 +82,7 @@
           <button (click)="changeQuantity(1)">+</button>
         </div>
         <!-- Add to Cart Button Section -->
-        <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+        <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
       </div>
       <hr />
       <!-- Categories Section -->
@@ -206,7 +206,7 @@
           [src]="relatedProduct.mainImage"
           [alt]="relatedProduct.name"
         />
-        <span class="cart-icon">
+        <span class="cart-icon" (click)="addToCart(relatedProduct)">
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="add-to-cart-badge">Add to cart</span>
         </span>

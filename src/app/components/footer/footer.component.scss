@@ -12,6 +12,12 @@
     font-size: 20px;
     align-items: center;
   }
+  a {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 .footer .center .nav {

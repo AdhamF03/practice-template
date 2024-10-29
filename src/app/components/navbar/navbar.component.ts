@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   Router,
@@ -7,6 +7,7 @@ import {
   NavigationEnd,
 } from '@angular/router';
 import { CartService } from '../../core/services/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -15,10 +16,12 @@ import { CartService } from '../../core/services/cart.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isSidebarOpen = false;
   isCartSidebarOpen = false;
   cartItems: any[] = [];
+  private cartSubscription: Subscription = new Subscription(); // Initialize subscription
+  totalQuantity: number = 0;
 
   constructor(private router: Router, private cartService: CartService) {
     // Subscribe to router events to close the sidebar on navigation
@@ -28,7 +31,19 @@ export class NavbarComponent {
         this.closeCartSidebar();
       }
     });
-    this.cartItems = this.cartService.getCartItems();
+  }
+
+  // Subscribe to cart items
+  ngOnInit(): void {
+    this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+      this.totalQuantity = this.cartService.getTotalQuantity();
+    });
+  }
+
+  // Unsubscribe from cart items
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
   }
 
   // Function to handle click event on the button
@@ -94,6 +109,7 @@ export class NavbarComponent {
     );
   }
 
+  // Function to clear the cart
   clearCart(): void {
     this.cartService.clearCart();
     this.cartItems = this.cartService.getCartItems(); // Refresh the cart items

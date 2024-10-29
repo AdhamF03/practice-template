@@ -136,7 +136,9 @@
 /* Dropdown button on hover & focus */
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: $colorWhite;
+  background-color: $colorGreen;
+  color: $colorWhite;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Dropdown content (hidden by default) */
@@ -177,10 +179,18 @@
 
     li button {
       color: $colorGreen;
+      margin: 0 10px;
 
       &:hover {
-        transform: scale(1.2);
+        background-color: $colorGrey;
+        color: black;
         transition: 0.3s ease-in-out;
+      }
+
+      &.active {
+        background-color: $colorGreen;
+        color: $colorWhite;
+        border: 1px solid $colorGreen;
       }
     }
   }
