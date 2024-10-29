@@ -112,7 +112,7 @@
               style="cursor: pointer"
             />
 
-            <span class="cart-icon">
+            <span class="cart-icon" (click)="addToCart(product)">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="add-to-cart-badge">Add to cart</span>
             </span>
@@ -165,7 +165,7 @@
                 style="cursor: pointer"
               />
             </a>
-            <span class="cart-icon">
+            <span class="cart-icon" (click)="addToCart(product)">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="add-to-cart-badge">Add to cart</span>
             </span>
@@ -261,4 +261,5 @@
     </div>
   </div>
 </div>
+<app-toast></app-toast>
 <app-scroll-to-top></app-scroll-to-top>

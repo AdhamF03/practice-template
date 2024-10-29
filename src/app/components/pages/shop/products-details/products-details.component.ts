@@ -153,8 +153,8 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   }
 
   // Method to add product to cart and show toast
-  addToCart(): void {
-    this.cartService.addToCart(this.product, this.quantity);
-    this.toast.showToast(`${this.product.name} added to cart!`);
+  addToCart(product: any): void {
+    this.cartService.addToCart(product, this.quantity);
+    this.toast.showToast(`${product.name} added to cart!`);
   }
 }

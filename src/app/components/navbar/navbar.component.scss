@@ -70,13 +70,13 @@ nav {
   // Cart counter styling
   .cart-counter {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: $colorWhite;
+    top: -23px;
+    right: -23px;
+    background-color: red;
     color: $colorWhite;
     border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
+    padding: 0.2em 0.5em;
+    font-size: 0.55em;
     font-weight: bold;
   }
 }
@@ -148,6 +148,7 @@ nav {
 
   // Shopping cart icon styling within sidebar
   .cart-icon {
+    position: relative;
     color: $colorGreen;
   }
 
@@ -208,7 +209,7 @@ nav {
     padding: 1rem;
     border-bottom: 1px solid $colorGreen;
 
-    h2 {
+    h4 {
       color: $colorGreen;
       margin: 0;
     }
@@ -401,5 +402,23 @@ nav {
   &:hover {
     background-color: #4b0000;
     color: $colorWhite;
+  }
+}
+
+.shop-cart {
+  position: relative;
+  i {
+    font-size: 1.7em;
+  }
+  .cart-counter {
+    position: absolute;
+    top: -23px;
+    right: -20px;
+    background-color: red;
+    color: $colorWhite;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    font-size: 1em;
+    font-weight: bold;
   }
 }
