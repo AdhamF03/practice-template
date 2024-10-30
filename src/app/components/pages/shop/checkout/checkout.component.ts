@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import * as countries from './../../../../../../public/countries.json';
 import { CommonModule } from '@angular/common';
 import { ServiceService } from '../../../../core/services/service.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,

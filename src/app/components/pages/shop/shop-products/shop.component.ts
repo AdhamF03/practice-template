@@ -28,7 +28,6 @@ export class ShopComponent implements OnInit {
   originalProducts: any = [];
   currentSort: string = 'Default Sorting';
   category: any;
-  saleProducts: any;
   quantity: number = 1;
   selectedCategory: string = '';
 

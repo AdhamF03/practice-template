@@ -32,17 +32,17 @@
       <div class="product-nav">
         <div class="product-breadcrumb">
           <nav class="breadcrumb">
-            <a (click)="router.navigate(['/home'])">Home</a>/<a
-              (click)="router.navigate(['/shop'])"
+            <a [routerLink]="['/home']">Home</a>/<a
+              [routerLink]="['/shop']"
               >{{ product.category }}</a
             >/{{ product.name }}
           </nav>
         </div>
         <div class="product-nav-buttons">
-          <a (click)="previousProduct()"
+          <a (click)="previousProduct()" title="Previous Product"
             ><i class="fa-solid fa-chevron-left"></i
           ></a>
-          <a (click)="nextProduct()"
+          <a (click)="nextProduct()" title="Next Product"
             ><i class="fa-solid fa-chevron-right"></i
           ></a>
         </div>
@@ -50,8 +50,8 @@
 
       <div class="categories-section">
         <span class="categories-value">
-          <a routerLink="">Pottery</a>, <a routerLink="">Ceramic</a>,
-          <a routerLink="">Ceramic Coatings</a>
+          <a [routerLink]="['/shop']">Pottery</a>, <a [routerLink]="['/shop']">Ceramic</a>,
+          <a [routerLink]="['/shop']">Ceramic Coatings</a>
         </span>
       </div>
       <h2 class="product-name">{{ product.name }}</h2>
@@ -88,11 +88,11 @@
       <!-- Categories Section -->
       <div class="categories-section">
         <span class="categories-title" style="font-weight: 500"
-          >Categories:
+          >Tags:
         </span>
         <span class="categories-value">
-          <a routerLink="">Pottery</a>, <a routerLink="">Ceramic</a>,
-          <a routerLink="">Ceramic Coatings</a>
+          <a [routerLink]="['/shop']">Pottery</a>, <a [routerLink]="['/shop']">Ceramic</a>,
+          <a [routerLink]="['/shop']">Ceramic Coatings</a>
         </span>
       </div>
       <!-- Shipping Info Section -->
