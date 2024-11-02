@@ -2,6 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import * as countries from './../../../../../../public/countries.json';
 import { CommonModule } from '@angular/common';
 import { ServiceService } from '../../../../core/services/service.service';
+
+import { CartService } from '../../../../core/services/cart.service';
+
+
+
 import {
   FormBuilder,
   FormGroup,
@@ -20,13 +25,17 @@ export class CheckoutComponent implements OnInit {
   checkoutForm!: FormGroup;
   required!: any;
   countriesList: string[] = countries.countries;
-  products: any = [];
   selectedCountry: string = '';
+  cartItems: any[] = [];
 
-  constructor(private service: ServiceService, private fb: FormBuilder) {}
+  constructor(
+    private service: ServiceService,
+    private fb: FormBuilder,
+    private cartService: CartService
+  ) {}
 
   ngOnInit() {
-    this.products = this.service.products;
+    this.cartItems = this.cartService.getCartItems();
     this.initForm();
   }
 
@@ -56,6 +65,14 @@ export class CheckoutComponent implements OnInit {
       'submitted form',
       this.checkoutForm.value,
       this.checkoutForm.invalid
+    );
+  }
+
+  // Get Subtotal
+  getSubtotal(): number {
+    return this.cartItems.reduce(
+      (sum, item) => sum + item.product.currentPrice * item.quantity,
+      0
     );
   }
 }
