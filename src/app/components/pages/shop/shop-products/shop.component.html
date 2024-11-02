@@ -26,9 +26,11 @@
         </ul>
       </div>
       <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">
+          Filter <i class="fa-solid fa-caret-down"></i>
+        </button>
         <div class="dropdown-content">
-          <a (click)="restoreDefault()">Sort by popularity</a>
+          <a (click)="restoreDefault()">View All</a>
           <a (click)="restoreDefault()">Sort by average rating</a>
           <a (click)="sortLowToHigh()">Sort by price: low to high</a>
           <a (click)="sortHighToLow()">Sort by price: high to low</a>
@@ -76,6 +78,5 @@
       </div>
     </div>
   </div>
-
 </div>
 <app-scroll-to-top></app-scroll-to-top>

@@ -15,17 +15,19 @@
               formControlName="username"
               [class.invalid]="checkoutForm.get('username')?.invalid"
             />
-          </div>
-          <div
-            *ngIf="
-              checkoutForm.get('username')?.invalid &&
-              checkoutForm.get('username')?.touched
-            "
-          >
-            <small *ngIf="checkoutForm.get('username')"
-              >Username is required.</small
+            <div
+              class="error-message"
+              *ngIf="
+                checkoutForm.get('username')?.invalid &&
+                checkoutForm.get('username')?.touched
+              "
             >
+              <small *ngIf="checkoutForm.get('username')"
+                >Username is required.</small
+              >
+            </div>
           </div>
+
           <h3>Billing Details</h3>
           <hr />
           <div class="billing-details">
@@ -38,6 +40,7 @@
                 [class.invalid]="checkoutForm.get('first_name')?.invalid"
               />
               <div
+                class="error-message"
                 *ngIf="
                   checkoutForm.get('first_name')?.invalid &&
                   checkoutForm.get('first_name')?.touched
@@ -261,20 +264,35 @@
             <p>Subtotal</p>
           </div>
           <hr />
-          <div class="product-quantity">
+          <div class="product-quantity" *ngFor="let item of cartItems">
             <div class="selected-product">
-              <div class="image"><img [src]="products.mainImage" /></div>
-              <div class="price">{{ products.price }}</div>
+              <div class="display">
+                <img
+                  [src]="item.product.mainImage"
+                  alt="{{ item.product.name }}"
+                />
+
+                <div class="name">
+                  {{ item.product.name }} x {{ item.quantity }}
+                </div>
+              </div>
+
+              <div class="price">
+                ${{ item.product.currentPrice * item.quantity }}
+              </div>
             </div>
+
             <hr />
           </div>
 
           <div class="subtotal">
             <p>Subtotal</p>
+            <p>${{ getSubtotal() }}</p>
           </div>
           <hr />
           <div class="total">
             <p>Total</p>
+            <p>${{ getSubtotal() }}</p>
           </div>
         </div>
       </div>
