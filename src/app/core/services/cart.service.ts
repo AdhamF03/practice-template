@@ -5,12 +5,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
-  private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  private cartItemsSubject = new BehaviorSubject<any[]>(this.loadCartFromLocalStorage());
   cartItems$ = this.cartItemsSubject.asObservable();
 
-  constructor() {
-    // Initialize with existing cart items if needed
-    this.cartItemsSubject.next(this.getCartItems());
+  constructor() {}
+
+  // Function to load the cart items from local storage
+  private loadCartFromLocalStorage(): any[] {
+    const storedCart = localStorage.getItem('cartItems');
+    return storedCart ? JSON.parse(storedCart) : [];
+  }
+
+  // Function to save the cart items to local storage
+  private saveCartToLocalStorage(cartItems: any[]): void {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
 
   // Function to add a product to the cart
@@ -23,6 +31,7 @@ export class CartService {
       currentItems.push({ product, quantity });
     }
     this.cartItemsSubject.next(currentItems);
+    this.saveCartToLocalStorage(currentItems);
   }
 
   // Function to get the cart items
@@ -38,17 +47,20 @@ export class CartService {
       item.quantity = Math.max(1, quantity);
     }
     this.cartItemsSubject.next(currentItems);
+    this.saveCartToLocalStorage(currentItems);
   }
 
   // Function to remove a product from the cart
   removeFromCart(productId: number): void {
     const currentItems = this.cartItemsSubject.getValue().filter(item => item.product.id !== productId);
     this.cartItemsSubject.next(currentItems);
+    this.saveCartToLocalStorage(currentItems);
   }
 
   // Function to clear the cart
   clearCart(): void {
     this.cartItemsSubject.next([]);
+    this.saveCartToLocalStorage([]);
   }
 
   // Function to get the total quantity of items in the cart
