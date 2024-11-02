@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ScrollToTopComponent } from '../../../shared/scroll-to-top/scroll-to-top.component';
 import { CartService } from '../../../../core/services/cart.service';
 import { ToastComponent } from '../../../shared/toast/toast.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products-details',
   standalone: true,
-  imports: [CommonModule, ScrollToTopComponent, ToastComponent],
+  imports: [CommonModule, ScrollToTopComponent, ToastComponent, RouterLink],
   templateUrl: './products-details.component.html',
   styleUrl: './products-details.component.scss',
 })
@@ -25,11 +26,6 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   zoomLevel: number = 0.8;
   zoomStyle: string = 'scale(0.8)';
   maxZoomLevel: number = 0.8;
-
-  // Change the quantity of the product
-  changeQuantity(change: number): void {
-    this.quantity = Math.max(1, this.quantity + change);
-  }
 
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +50,19 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
+  // Utility function to shuffle an array
+  private shuffleArray(array: any[]): any[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // Change the quantity of the product
+  changeQuantity(change: number): void {
+    this.quantity = Math.max(1, this.quantity + change);
+  }
   ngOnDestroy() {
     // Remove event listener for keydown event
     window.removeEventListener('keydown', this.handleKeyDown);
@@ -69,16 +78,13 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
     if (event.key === 'ArrowRight' && this.isModalVisible) {
       this.nextImage();
     }
-  };
-
-  // Utility function to shuffle an array
-  private shuffleArray(array: any[]): any[] {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    if (event.key === 'ArrowLeft' && !this.isModalVisible) {
+      this.previousProduct();
     }
-    return array;
-  }
+    if (event.key === 'ArrowRight' && !this.isModalVisible) {
+      this.nextProduct();
+    }
+  };
 
   // Method to update the main image
   updateMainImage(imageUrl: string): void {
@@ -153,8 +159,8 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   }
 
   // Method to add product to cart and show toast
-  addToCart(): void {
-    this.cartService.addToCart(this.product, this.quantity);
-    this.toast.showToast(`${this.product.name} added to cart!`);
+  addToCart(product: any): void {
+    this.cartService.addToCart(product, this.quantity);
+    this.toast.showToast(`${product.name} added to cart!`);
   }
 }
