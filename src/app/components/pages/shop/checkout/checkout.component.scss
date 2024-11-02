@@ -219,6 +219,29 @@ small {
     .selected-product {
       padding-left: 20px;
       padding-top: 15px;
+      display: flex;
+      justify-content: space-between;
+
+      .display {
+        display: flex;
+        align-items: center;
+
+        .name {
+          padding-left: 10px;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 5%;
+        }
+      }
+
+      .price {
+        // margin-left: 329px;
+        // margin-top: 10px;
+        align-items: flex-end;
+        padding-right: 20px;
+      }
     }
 
     .subtotal {
@@ -235,7 +258,7 @@ small {
 
       p {
         font-family: $heading-Font;
-        font-weight: bold;
+        font-weight: bolder;
         font-size: 20px;
       }
     }

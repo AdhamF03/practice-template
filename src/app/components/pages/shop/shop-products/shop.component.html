@@ -42,11 +42,13 @@
       </div>
       <div class="dropdown">
         <button class="dropbtn">
+
           {{ currentSort }}
           <i class="fa-solid fa-caret-down"></i>
+
         </button>
         <div class="dropdown-content">
-          <a (click)="restoreDefault()">Sort by popularity</a>
+          <a (click)="restoreDefault()">View All</a>
           <a (click)="restoreDefault()">Sort by average rating</a>
           <a (click)="sortLowToHigh()">Sort by price: low to high</a>
           <a (click)="sortHighToLow()">Sort by price: high to low</a>

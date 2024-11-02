@@ -70,10 +70,20 @@
             </div>
             <div class="name-fields">
               <div class="input-field">
-                <input type="text" placeholder="Firstname" />
+                <input
+                  type="text"
+                  placeholder="Firstname"
+                  formControlName="first_name"
+                  [class.invalid]="contactForm.get('first_name')?.invalid"
+                />
               </div>
               <div class="input-field">
-                <input type="text" placeholder="Lastname" />
+                <input
+                  type="text"
+                  placeholder="Lastname"
+                  formControlName="last_name"
+                  [class.invalid]="contactForm.get('last_name')?.invalid"
+                />
               </div>
             </div>
 
@@ -83,7 +93,11 @@
             </div>
             <div class="email-field">
               <div class="input-field">
-                <input type="text" />
+                <input
+                  type="text"
+                  formControlName="email"
+                  [class.invalid]="contactForm.get('email')?.invalid"
+                />
               </div>
             </div>
 

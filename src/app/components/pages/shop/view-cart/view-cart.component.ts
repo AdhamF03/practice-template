@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { CartService } from '../../../../core/services/cart.service';
@@ -8,13 +9,16 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-view-cart',
   standalone: true,
   imports: [MatTableModule, ScrollToTopComponent, RouterLink],
+
   templateUrl: './view-cart.component.html',
-  styleUrls: ['./view-cart.component.scss']
+  styleUrls: ['./view-cart.component.scss'],
 })
 export class ViewCartComponent implements OnInit, OnDestroy {
   cartItems: any[] = [];
+
   displayedColumns: string[] = ['product', 'price', 'quantity', 'subtotal', 'actions'];
   private cartSubscription: Subscription = new Subscription(); // Initialize subscription
+
 
   constructor(private cartService: CartService) {}
   readonly router = inject(Router);
@@ -33,7 +37,10 @@ export class ViewCartComponent implements OnInit, OnDestroy {
 
   // Get Subtotal
   getSubtotal(): number {
-    return this.cartItems.reduce((sum, item) => sum + item.product.currentPrice * item.quantity, 0);
+    return this.cartItems.reduce(
+      (sum, item) => sum + item.product.currentPrice * item.quantity,
+      0
+    );
   }
 
   // Decrease Quantity
