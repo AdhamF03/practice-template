@@ -2,10 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import * as countries from './../../../../../../public/countries.json';
 import { CommonModule } from '@angular/common';
 import { ServiceService } from '../../../../core/services/service.service';
-
 import { CartService } from '../../../../core/services/cart.service';
-
-
 
 import {
   FormBuilder,
@@ -37,6 +34,13 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
     this.initForm();
+    this.subscribeToCartChanges();
+  }
+
+  subscribeToCartChanges() {
+    this.cartService.cartItems$.subscribe((updatedCartItems: any[]) => {
+      this.cartItems = updatedCartItems;
+    });
   }
 
   initForm() {
