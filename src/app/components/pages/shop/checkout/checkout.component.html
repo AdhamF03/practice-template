@@ -1,0 +1,301 @@
+<div class="container">
+  <div class="row">
+    <!-- FORM -->
+    <div class="col-md-6 form-container">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <h1 style="margin-bottom: 40px">Checkout</h1>
+        <div class="checkout-form">
+          <h3>Customer information</h3>
+          <hr class="line-heading" />
+          <!-- USERNAME OR EMAIL -->
+          <div class="username-input">
+            <input
+              type="text"
+              placeholder="Username or Email Address *"
+              formControlName="username"
+              [class.invalid]="checkoutForm.get('username')?.invalid"
+            />
+            <div
+              class="error-message"
+              *ngIf="
+                checkoutForm.get('username')?.invalid &&
+                checkoutForm.get('username')?.touched
+              "
+            >
+              <small *ngIf="checkoutForm.get('username')"
+                >Username is required.</small
+              >
+            </div>
+          </div>
+
+          <h3>Billing Details</h3>
+          <hr />
+          <div class="billing-details">
+            <!-- NAME FIELDS -->
+            <div class="name-fields">
+              <input
+                type="text"
+                placeholder="First name *"
+                formControlName="first_name"
+                [class.invalid]="checkoutForm.get('first_name')?.invalid"
+              />
+              <div
+                class="error-message"
+                *ngIf="
+                  checkoutForm.get('first_name')?.invalid &&
+                  checkoutForm.get('first_name')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('first_name')"
+                  >First Name is Required.</small
+                >
+              </div>
+              <input
+                type="text"
+                class="last-name"
+                placeholder="Last name *"
+                formControlName="last_name"
+                [class.invalid]="checkoutForm.get('last_name')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('last_name')?.invalid &&
+                  checkoutForm.get('last_name')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('last_name')"
+                  >Last Name is Required.</small
+                >
+              </div>
+            </div>
+            <!-- COMPANY NAME -->
+            <input
+              type="text"
+              class="company-name"
+              placeholder="Company name"
+              formControlName="company_name"
+              [class.invalid]="checkoutForm.get('company_name')?.invalid"
+            />
+            <div
+              *ngIf="
+                checkoutForm.get('company_name')?.invalid &&
+                checkoutForm.get('company_name')?.touched
+              "
+            >
+              <small *ngIf="checkoutForm.get('company_name')"
+                >Company Name is Required.</small
+              >
+            </div>
+            <!-- DRP DOWN COUNTRIES -->
+            <div class="dropdown">
+              <input
+                type="text"
+                placeholder="Select a Country *"
+                [value]="selectedCountry"
+                readonly
+                formControlName="country"
+                [class.invalid]="checkoutForm.get('country')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('country')?.invalid &&
+                  checkoutForm.get('country')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('country')"
+                  >Please Select a Country.</small
+                >
+              </div>
+
+              <div class="dropdown-content">
+                <a
+                  *ngFor="let country of countriesList"
+                  (click)="selectCountry(country)"
+                >
+                  {{ country }}
+                </a>
+              </div>
+            </div>
+            <!-- ADDRESS -->
+            <div class="address">
+              <input
+                type="text"
+                placeholder="House number and street name *"
+                formControlName="address"
+                [class.invalid]="checkoutForm.get('address')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('address')?.invalid &&
+                  checkoutForm.get('address')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('address')"
+                  >address number is Required.</small
+                >
+              </div>
+
+              <input
+                type="text"
+                class="apartment"
+                placeholder="Apartment, suite, unit.(optional)"
+                formControlName="apartment"
+                [class.invalid]="checkoutForm.get('apartment')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('apartment')?.invalid &&
+                  checkoutForm.get('apartment')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('apartment')"
+                  >apartment number is Required.</small
+                >
+              </div>
+            </div>
+            <!-- CITY -->
+            <div class="city">
+              <input
+                type="text"
+                placeholder="Town/ City"
+                formControlName="city"
+                [class.invalid]="checkoutForm.get('city')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('city')?.invalid &&
+                  checkoutForm.get('city')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('city')"
+                  >City Name is Required.</small
+                >
+              </div>
+              <input
+                type="text"
+                placeholder="State"
+                formControlName="state"
+                [class.invalid]="checkoutForm.get('state')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('state')?.invalid &&
+                  checkoutForm.get('state')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('state')"
+                  >State Name is Required.</small
+                >
+              </div>
+              <input
+                type="text"
+                placeholder="Zip Code *"
+                formControlName="zip_code"
+                [class.invalid]="checkoutForm.get('state')?.invalid"
+              />
+              <div
+                *ngIf="
+                  checkoutForm.get('zip_code')?.invalid &&
+                  checkoutForm.get('zip_code')?.touched
+                "
+              >
+                <small *ngIf="checkoutForm.get('zip_code')"
+                  >Zip Code is Required.</small
+                >
+              </div>
+            </div>
+            <!-- PHONE # -->
+            <input
+              class="phone"
+              type="text"
+              placeholder="Phone *"
+              formControlName="phone"
+              [class.invalid]="checkoutForm.get('phone')?.invalid"
+            />
+            <div
+              *ngIf="
+                checkoutForm.get('phone')?.invalid &&
+                checkoutForm.get('phone')?.touched
+              "
+            >
+              <small *ngIf="checkoutForm.get('phone')"
+                >Phone Number is Required.</small
+              >
+            </div>
+            <h3>Additional Information</h3>
+            <hr />
+            <!-- NOTES -->
+            <input
+              class="notes"
+              type="text"
+              placeholder="Notes about your order, e.g special notes for delivery"
+            />
+            <button class="coupon">Have a coupon?</button>
+            <h3>Payment</h3>
+            <div class="payment-alert">
+              <div class="pay-message">
+                <p>
+                  <i class="fa-regular fa-envelope"></i>
+                  Sorry, it seems that there are no available payment methods.
+                  Please contact us if you require assistance or wish to make
+                  alternate arrangements.
+                </p>
+              </div>
+            </div>
+            <div class="payment">
+              <div class="alert-message">
+                <button type="submit" (click)="onSubmit()">
+                  <i class="fa-solid fa-lock" style="padding-right: 10px"></i
+                  >Place order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- CHECKOUT-INFO -->
+    <div class="col-md-6">
+      <div class="order">
+        <h3>Your order</h3>
+        <div class="product-view">
+          <div class="heading">
+            <p>Product</p>
+            <p>Subtotal</p>
+          </div>
+          <hr />
+          <div class="product-quantity" *ngFor="let item of cartItems">
+            <div class="selected-product">
+              <div class="display">
+                <img
+                  [src]="item.product.mainImage"
+                  alt="{{ item.product.name }}"
+                />
+
+                <div class="name">
+                  {{ item.product.name }} x {{ item.quantity }}
+                </div>
+              </div>
+
+              <div class="price">
+                ${{ item.product.currentPrice * item.quantity }}
+              </div>
+            </div>
+
+            <hr />
+          </div>
+
+          <div class="subtotal">
+            <p>Subtotal</p>
+            <p>${{ getSubtotal() }}</p>
+          </div>
+          <hr />
+          <div class="total">
+            <p>Total</p>
+            <p>${{ getSubtotal() }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

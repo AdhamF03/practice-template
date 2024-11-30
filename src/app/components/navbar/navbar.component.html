@@ -1,0 +1,158 @@
+<section>
+  <div class="container">
+    <nav>
+      <!-- Left section: Brand -->
+      <ul class="left">
+        <li class="p-0">
+          <a class="brand" [routerLink]="['/home']">CeramicShop</a>
+        </li>
+      </ul>
+
+      <!-- Center section: Navigation links -->
+      <ul class="center">
+        <li>
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/about']" routerLinkActive="router-link-active"
+            >About</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/shop']" routerLinkActive="router-link-active"
+            >Shop</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/contact']" routerLinkActive="router-link-active"
+            >Contact</a
+          >
+        </li>
+      </ul>
+
+      <!-- Right section: Shopping cart icon -->
+      <ul class="right">
+        <li class="p-0">
+          <a (click)="toggleCartSidebar()">
+            <div class="shop-cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-counter" *ngIf="totalQuantity > 0">{{ totalQuantity }}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Sidebar toggle button -->
+      <button class="close collapse" (click)="onClickBtn()">
+        <i
+          [ngClass]="{ 'fa-bars': !isSidebarOpen, 'fa-times': isSidebarOpen }"
+          class="fa-solid"
+        ></i>
+      </button>
+    </nav>
+  </div>
+</section>
+
+<!-- Backdrop for sidebar -->
+<div class="backdrop" (click)="closeSidebar()" *ngIf="isSidebarOpen"></div>
+
+<!-- Sidebar navigation -->
+<div
+  class="sidebar"
+  [ngClass]="{ open: isSidebarOpen, collapse: !isSidebarOpen }"
+>
+  <button class="close" (click)="onClickBtn()">
+    <i class="fa-solid fa-times"></i>
+  </button>
+  <ul>
+    <li>
+      <a [routerLink]="['/home']">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['/about']">About</a>
+    </li>
+    <li>
+      <a [routerLink]="['/shop']">Shop</a>
+    </li>
+    <li>
+      <a [routerLink]="['/contact']">Contact</a>
+    </li>
+
+    <li>
+      <hr />
+    </li>
+
+    <!-- Shopping cart icon in sidebar -->
+    <li class="shop-cart-item" (click)="toggleCartSidebar()">
+      <div class="cart-icon">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="cart-counter" *ngIf="totalQuantity > 0">{{ totalQuantity }}</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- Cart sidebar -->
+<div class="cart-sidebar" [ngClass]="{ open: isCartSidebarOpen }">
+  <div class="cart-header">
+    <h4>Shopping Cart</h4>
+    <button class="close" (click)="toggleCartSidebar()">
+      <i class="fa-solid fa-times"></i>
+    </button>
+  </div>
+  <div class="cart-content">
+    <ng-container *ngIf="cartItems.length; else emptyCart">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img
+          [src]="item.product.mainImage"
+          alt="{{ item.product.name }}"
+          routerLink="/shop/{{ item.product.id }}"
+        />
+        <p>{{ item.product.name }}</p>
+        <p>Price: ${{ getTotalPrice(item) }}</p>
+        <!-- Quantity Selector Section -->
+        <div class="quantity-selector">
+          <button (click)="changeCartItemQuantity(item.product.id, -1)">
+            -
+          </button>
+          <input
+            type="number"
+            [value]="item.quantity"
+            (input)="onQuantityInput(item.product.id, $event)"
+            min="1"
+          />
+          <button (click)="changeCartItemQuantity(item.product.id, 1)">
+            +
+          </button>
+        </div>
+        <!-- Remove Button -->
+        <button class="remove-item" (click)="removeCartItem(item.product.id)">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <!-- Subtotal Section -->
+      <div class="cart-subtotal">
+        <p>Subtotal: ${{ getSubtotal() }}</p>
+      </div>
+      <!-- Action Buttons -->
+      <button class="view-cart" [routerLink]="['/cart']">VIEW CART</button>
+      <button class="checkout" [routerLink]="['/checkout']">CHECKOUT</button>
+      <button *ngIf="cartItems.length > 1" class="empty-cart" (click)="clearCart()">EMPTY CART</button>
+    </ng-container>
+    <ng-template #emptyCart>
+      <p>No products in the cart.</p>
+    </ng-template>
+  </div>
+  <button class="continue-shopping" (click)="closeCartSidebar()">
+    Continue Shopping
+  </button>
+</div>
+
+<!-- Backdrop for cart-sidebar -->
+<div
+  class="backdrop"
+  (click)="closeCartSidebar()"
+  *ngIf="isCartSidebarOpen"
+></div>

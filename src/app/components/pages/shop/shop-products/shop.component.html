@@ -1,0 +1,101 @@
+<div class="container-xl">
+  <div class="row" style="margin: 4em 0">
+    <div class="shop-wrapper">
+      <div class="shop-title">
+        <h1 style="color: #025048">Shop</h1>
+      </div>
+      <hr class="shop-line" />
+    </div>
+    <!-- filtering and diplaying total -->
+    <div class="product-info">
+      <div class="total-items">
+        <p>Showing all {{ products.length }} results</p>
+      </div>
+
+      <div class="filter-category">
+        <ul>
+          <li>
+            <button
+              (click)="filterByCeramic()"
+              [class.active]="selectedCategory === 'Ceramic'"
+            >
+              CERAMIC
+            </button>
+          </li>
+          <li>
+            <button
+              (click)="filterByPottery()"
+              [class.active]="selectedCategory === 'Pottery'"
+            >
+              CERAMIC COATINGS
+            </button>
+          </li>
+          <li>
+            <button
+              (click)="filterByKitchenware()"
+              [class.active]="selectedCategory === 'Ceramic Kitchenware'"
+            >
+              CERAMIC KITCHENWARE
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">
+
+          {{ currentSort }}
+          <i class="fa-solid fa-caret-down"></i>
+
+        </button>
+        <div class="dropdown-content">
+          <a (click)="restoreDefault()">View All</a>
+          <a (click)="restoreDefault()">Sort by average rating</a>
+          <a (click)="sortLowToHigh()">Sort by price: low to high</a>
+          <a (click)="sortHighToLow()">Sort by price: high to low</a>
+          <a (click)="restoreDefault()">Default sorting</a>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUCT DISPLAY SECTION -->
+    <div class="container-fluid-4">
+      <div class="container">
+        <div class="row product-list">
+          <div class="col-md-4 product-item" *ngFor="let product of products">
+            <div class="product-image">
+              <img
+                (click)="router.navigate(['/shop', product.id])"
+                class="product-img"
+                [src]="product.mainImage"
+                [alt]="product.name"
+                style="cursor: pointer"
+              />
+
+              <span class="cart-icon" (click)="addToCart(product)">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="add-to-cart-badge">Add to cart</span>
+              </span>
+              <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
+            </div>
+            <span style="opacity: 0.6">{{ product.category }}</span>
+            <h4>{{ product.name }}</h4>
+            <span class="product-rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+            <p class="price">
+              <span class="old-price" *ngIf="product.oldPrice">{{
+                product.oldPrice
+              }}</span>
+              ${{ product.currentPrice }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-toast></app-toast>
+<app-scroll-to-top></app-scroll-to-top>

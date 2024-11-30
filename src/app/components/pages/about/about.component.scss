@@ -1,0 +1,202 @@
+@import "../../../../styles.scss";
+
+#about-page {
+  display: flex;
+  flex-direction: column;
+
+  // About Section
+  .container-fluid-1 {
+    background-color: $colorGreen;
+
+    h1,
+    p {
+      color: $colorWhite;
+    }
+
+    .container .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 4.125rem;
+      }
+
+      .img-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        height: 500px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .container .row {
+        flex-direction: column;
+
+        h1,
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // Our Story Section
+  .container-fluid-2 {
+    background-color: $colorWhite;
+    margin-top: 100px;
+
+    h6,
+    h2 {
+      color: $colorGreen;
+    }
+    h2 {
+      font-size: 3rem;
+      line-height: 1.2em;
+    }
+    .img-container {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  // Our Journey Section
+  .container-fluid-3 {
+    background-color: $colorGrey;
+    margin-top: 100px;
+
+    .img-container {
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+      img {
+        width: 100%;
+      }
+      .text-section {
+        padding: 25px;
+      }
+    }
+    h6,
+    h2 {
+      color: $colorGreen;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.2em;
+    }
+
+    @media (max-width: 1024px) {
+      .container .row {
+        flex-direction: column;
+
+        h6,
+        h2,
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // Our Vision & Goals Section
+  .container-fluid-4 {
+    background-color: $colorWhite;
+    margin-top: 50px;
+
+    h3 {
+      color: $colorGreen;
+      font-family: $heading-Font;
+      font-size: 1.875rem;
+    }
+    @media (max-width: 1024px) {
+      h3,
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  // ADV Section
+  .ceramic-artistry {
+    padding: 0;
+    overflow: hidden;
+
+    .row {
+      margin: 0;
+      display: flex;
+    }
+
+    .image-container,
+    .content-container {
+      padding: 0;
+      flex: 1;
+    }
+
+    .image-container {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content-container {
+      background-color: #0c4b45;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+      }
+
+      .btn-shop {
+        background-color: $colorGreen;
+        color: $colorWhite;
+        border: 1px solid $colorWhite;
+        align-self: flex-start;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $colorWhite;
+          color: $colorGreen;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .ceramic-artistry {
+      .row {
+        flex-direction: column;
+      }
+    }
+
+    .image-container,
+    .content-container {
+      width: 100%;
+    }
+
+    .content-container {
+      text-align: center;
+    }
+
+    .ceramic-artistry .content-container .btn-shop {
+      align-self: center;
+    }
+  }
+}

@@ -1,0 +1,197 @@
+@import "../../../../../styles.scss";
+.product-info {
+  display: flex;
+  justify-content: space-between;
+}
+.container-fluid-4 {
+  background-color: $colorWhite;
+  padding: 50px 0;
+
+  h6 {
+    color: $colorGreen;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    color: $colorGreen;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .product-item {
+      width: 100%;
+      max-width: 30%;
+      margin-bottom: 30px;
+      text-align: left;
+
+      .product-image {
+        position: relative;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          max-width: 300px;
+          height: 300px;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+        .product-img {
+          max-width: 400px;
+          height: 400px;
+        }
+
+        .sale-badge {
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+          position: absolute;
+          top: 1.5em;
+          left: 1.5em;
+          background-color: $colorWhite;
+          color: #424b4a;
+          padding: 0.1em 0.8em;
+          font-size: 0.87em;
+          border-radius: 20px;
+          font-weight: 500;
+        }
+
+        .cart-icon {
+          cursor: pointer;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+          position: absolute;
+          top: 1.5em;
+          right: 1.5em;
+          background-color: $colorWhite;
+          color: $colorGreen;
+          padding: 0.1em 0.8em;
+          font-size: 0.87em;
+          border-radius: 20px;
+          font-weight: 500;
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+          .add-to-cart-badge {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            background-color: $colorGreen;
+            color: $colorWhite;
+            padding: 0.2em 0.5em;
+            border-radius: 5px;
+            font-size: 0.75em;
+            white-space: nowrap;
+          }
+        }
+
+        &:hover .cart-icon {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .cart-icon:hover .add-to-cart-badge {
+          display: block;
+        }
+      }
+
+      h4 {
+        color: $colorGreen;
+        margin-top: 15px;
+      }
+
+      .price {
+        .old-price {
+          text-decoration: line-through;
+          color: #999;
+          margin-right: 5px;
+        }
+
+        color: #424b4a;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* Dropdown button */
+.dropbtn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: $colorGreen;
+  color: $colorWhite;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $colorGrey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f18c;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.filter-category {
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+    li button {
+      color: $colorGreen;
+      margin: 0 10px;
+
+      &:hover {
+        background-color: $colorGrey;
+        color: black;
+        transition: 0.3s ease-in-out;
+      }
+
+      &.active {
+        background-color: $colorGreen;
+        color: $colorWhite;
+        border: 1px solid $colorGreen;
+      }
+    }
+  }
+}

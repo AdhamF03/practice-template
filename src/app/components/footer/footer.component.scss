@@ -1,0 +1,87 @@
+@import "../../../styles.scss";
+
+.footer {
+  background-color: $colorGrey;
+  border-bottom: 1.5px groove;
+  padding: 60px 40px 30px;
+
+  .logo a {
+    font-family: $heading-Font;
+    text-decoration: none;
+    color: $colorGreen;
+    font-size: 20px;
+    align-items: center;
+  }
+  a {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.footer .center .nav {
+  list-style: none;
+  font-size: 1.2em;
+  color: black;
+
+  .nav-link {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.footer-end .socials {
+  display: flex;
+  justify-content: flex-end;
+  font-size: large;
+
+  .fa-brands {
+    margin-left: 15px;
+  }
+}
+
+.footer-2 {
+  background-color: $colorGrey;
+  padding: 30px 40px;
+}
+
+h3 {
+  display: flex;
+  font-size: 17px;
+  align-items: center;
+  font-weight: lighter;
+}
+.rights {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .footer,
+  .logo,
+  .copyright,
+  .rights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .socials {
+    padding: 10px 0;
+  }
+
+  .footer .center .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-end .socials {
+    justify-content: center;
+  }
+
+  .footer-2 .row.second-half {
+    display: flex;
+    justify-content: space-between;
+  }
+}

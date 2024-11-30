@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.toast-container {
+  z-index: 1050;
+  .toast {
+    background-color: $colorGreen;
+  }
+  .toast-body {
+    color: $colorWhite;
+    display: flex;
+    align-items: center;
+  }
+  .cart-button {
+    background-color: $colorGreen;
+    color: $colorWhite;
+    border: 1px solid $colorWhite;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    &:hover {
+      background-color: $colorWhite;
+      color: $colorGreen;
+      transition: all 0.3s ease;
+    }
+  }
+}

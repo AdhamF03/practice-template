@@ -1,3 +1,19 @@
 import { Routes } from '@angular/router';
+import { AboutComponent } from './components/pages/about/about.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ProductsDetailsComponent } from './components/pages/shop/products-details/products-details.component';
+import { ShopComponent } from './components/pages/shop/shop-products/shop.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { CheckoutComponent } from './components/pages/shop/checkout/checkout.component';
+import { ViewCartComponent } from './components/pages/shop/view-cart/view-cart.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'shop/:id', component: ProductsDetailsComponent },
+  { path: 'cart', component: ViewCartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+];

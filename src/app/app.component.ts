@@ -1,11 +1,30 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/pages/home/home.component';
-
+import { AboutComponent } from './components/pages/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { ShopComponent } from './components/pages/shop/shop-products/shop.component';
+import { ProductsDetailsComponent } from './components/pages/shop/products-details/products-details.component';
+import { ServiceService } from './core/services/service.service';
+import { CheckoutComponent } from './components/pages/shop/checkout/checkout.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    AboutComponent,
+    ContactComponent,
+    ShopComponent,
+    ProductsDetailsComponent,
+    CheckoutComponent,
+  ],
+  providers: [ServiceService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

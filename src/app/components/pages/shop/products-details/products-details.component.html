@@ -1,0 +1,255 @@
+<div class="container product-details-container">
+  <div class="row product-details">
+    <!-- Product Images Section -->
+    <div class="col-md-6 product-images">
+      <div class="row">
+        <div class="col-md-4 thumbnail-images">
+          <img
+            *ngFor="let thumbnail of product.thumbnailImages"
+            [src]="thumbnail.url"
+            alt="Thumbnail"
+            (click)="updateMainImage(thumbnail.url)"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="main-image-zoom">
+            <i
+              class="fa-solid fa-magnifying-glass-plus img-zoom"
+              (click)="openModal(currentIndex)"
+            ></i>
+            <img
+              [src]="mainImage"
+              alt="Main Product Image"
+              class="main-image"
+            />
+            <span class="sale-badge" *ngIf="product.oldPrice">Sale!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product Info Section -->
+    <div class="col-md-6 product-info">
+      <div class="product-nav">
+        <div class="product-breadcrumb">
+          <nav class="breadcrumb">
+            <a [routerLink]="['/home']">Home</a>/<a
+              [routerLink]="['/shop']"
+              >{{ product.category }}</a
+            >/{{ product.name }}
+          </nav>
+        </div>
+        <div class="product-nav-buttons">
+          <a (click)="previousProduct()" title="Previous Product"
+            ><i class="fa-solid fa-chevron-left"></i
+          ></a>
+          <a (click)="nextProduct()" title="Next Product"
+            ><i class="fa-solid fa-chevron-right"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="categories-section">
+        <span class="categories-value">
+          <a [routerLink]="['/shop']">Pottery</a>, <a [routerLink]="['/shop']">Ceramic</a>,
+          <a [routerLink]="['/shop']">Ceramic Coatings</a>
+        </span>
+      </div>
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-price">
+        <ng-container *ngIf="product.oldPrice">
+          <span class="old-price">{{ product.oldPrice }}</span>
+        </ng-container>
+        ${{ product.currentPrice }}
+        <span>& Free Shipping</span>
+      </p>
+      <!-- Product Description Section -->
+      <p class="product-description">
+        Discover the beauty of ceramics with our handcrafted. This exquisite
+        piece combines artistry and function, making it a versatile addition to
+        any space. Whether used as a decorative accent or a practical item, this
+        ceramic creation adds a touch of elegance to your surroundings.
+      </p>
+      <div class="quantity-and-cart">
+        <!-- Quantity Selector Section -->
+        <div class="quantity-selector">
+          <button (click)="changeQuantity(-1)">-</button>
+          <input
+            type="number"
+            [value]="quantity"
+            (input)="quantity = $any($event.target).valueAsNumber || 0"
+            min="1"
+          />
+          <button (click)="changeQuantity(1)">+</button>
+        </div>
+        <!-- Add to Cart Button Section -->
+        <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+      <hr />
+      <!-- Categories Section -->
+      <div class="categories-section">
+        <span class="categories-title" style="font-weight: 500"
+          >Tags:
+        </span>
+        <span class="categories-value">
+          <a [routerLink]="['/shop']">Pottery</a>, <a [routerLink]="['/shop']">Ceramic</a>,
+          <a [routerLink]="['/shop']">Ceramic Coatings</a>
+        </span>
+      </div>
+      <!-- Shipping Info Section -->
+      <p class="shipping-info" style="font-weight: bold">
+        Free shipping on orders over $50!
+      </p>
+      <!-- Guarantees Section -->
+      <ul class="guarantees">
+        <li>
+          <i class="material-symbols-outlined">check_circle</i> No-Risk Money
+          Back Guarantee!
+        </li>
+        <li>
+          <i class="material-symbols-outlined">check_circle</i> No Hassle
+          Refunds
+        </li>
+        <li>
+          <i class="material-symbols-outlined">check_circle</i> Secure Payments
+        </li>
+      </ul>
+      <!-- Safe Checkout Section -->
+      <div class="safe-checkout">
+        <h3 style="color: #424b4a; font-weight: 700">
+          Guaranteed Safe Checkout
+        </h3>
+        <div class="payment-icons">
+          <img src="img/visa.png" alt="Visa" />
+          <img src="img/mastercard.png" alt="Mastercard" />
+          <img src="img/Amex.png" alt="American Express" />
+          <img src="img/discover.png" alt="Discover" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Product Reviews Section -->
+  <div class="product-tabs">
+    <ul class="tab-list">
+      <li
+        [class.active]="activeTab === 'description'"
+        (click)="activeTab = 'description'"
+      >
+        Description
+      </li>
+      <li
+        [class.active]="activeTab === 'reviews'"
+        (click)="activeTab = 'reviews'"
+      >
+        Reviews (0)
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane" [class.active]="activeTab === 'description'">
+        <p>
+          Discover the beauty of ceramics with our handcrafted. This exquisite
+          piece combines artistry and function, making it a versatile addition
+          to any space. Whether used as a decorative accent or a practical item,
+          this ceramic creation adds a touch of elegance to your surroundings.
+          Showcases the craftsmanship and timeless appeal of ceramics. Its
+          ensures it’s built to last, serving both as a beautiful addition and a
+          functional part of your daily life. Experience the artistry of
+          ceramics and enhance your living spaces with our. Order today and
+          elevate your surroundings with this exquisite piece.
+        </p>
+      </div>
+      <div class="tab-pane" [class.active]="activeTab === 'reviews'">
+        <p>There are no reviews yet.</p>
+        <form class="review-form">
+          <h4 style="color: #025048">
+            Be the first to review “{{ product.name }}”
+          </h4>
+          <p>
+            Your email address will not be published. Required fields are marked
+            *
+          </p>
+          <label>Your rating *</label>
+          <div class="rating pt-2">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <label>Your review *</label>
+          <textarea required></textarea>
+          <label>Name *</label>
+          <input type="text" required />
+          <label>Email *</label>
+          <input type="email" required />
+          <div>
+            <label for="save-info"
+              ><input type="checkbox" id="save-info" /> Save my name, email, and
+              website in this browser for the next time I comment.</label
+            >
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Related Products -->
+  <div class="container related-products">
+    <h3>Related products</h3>
+    <div class="row product-list">
+      <div
+        class="col-md-3 product-item"
+        *ngFor="let relatedProduct of relatedProducts"
+      >
+        <img
+          (click)="router.navigate(['/shop', relatedProduct.id])"
+          class="product-img"
+          [src]="relatedProduct.mainImage"
+          [alt]="relatedProduct.name"
+        />
+        <span class="cart-icon" (click)="addToCart(relatedProduct)">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="add-to-cart-badge">Add to cart</span>
+        </span>
+        <span class="sale-badge" *ngIf="relatedProduct.oldPrice">Sale!</span>
+
+        <p class="category">{{ relatedProduct.category }}</p>
+        <h4>{{ relatedProduct.name }}</h4>
+        <span class="product-rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </span>
+        <p class="price">
+          <ng-container *ngIf="relatedProduct.oldPrice">
+            <span class="old-price">{{ relatedProduct.oldPrice }}</span>
+          </ng-container>
+          ${{ relatedProduct.currentPrice }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Image Zoom Modal -->
+  <div class="image-overlay" *ngIf="isModalVisible">
+    <div class="overlay-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <span class="material-symbols-outlined zoom-in" (click)="zoomIn()"
+        >add</span
+      >
+      <span class="full-screen" (click)="toggleFullScreen()">&#x26F6;</span>
+      <img
+        [src]="mainImage"
+        class="overlay-image"
+        [style.transform]="zoomStyle"
+      />
+      <span class="prev" (click)="prevImage()">&#10094;</span>
+      <span class="next" (click)="nextImage()">&#10095;</span>
+      <div class="image-counter">
+        {{ currentIndex + 1 }}/{{ product?.thumbnailImages?.length }}
+      </div>
+    </div>
+  </div>
+</div>
+<app-toast></app-toast>
+<app-scroll-to-top></app-scroll-to-top>
